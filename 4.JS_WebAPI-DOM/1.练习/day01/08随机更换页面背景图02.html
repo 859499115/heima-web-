@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url(./5.images/desktop_1.jpg) no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //获取元素body
+        let bgc = document.querySelector('body')
+            // 抽取随机数函数
+        function getBackground(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+
+        }
+        //调用函数
+        let background = getBackground(1, 10)
+        console.log(background)
+            //修元素属性值
+            //刷新页面,随机更换页面背景图片
+        bgc.style.backgroundImage = `url(./5.images/desktop_${background}.jpg) `
+    </script>
+</body>
+
+</html>

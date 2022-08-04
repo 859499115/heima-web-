@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* img块级元素 */
+        
+        img {
+            /* 没给父级relative,img相对浏览器窗口移动 */
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./images/tianshi.gif" alt="">
+    <script>
+        let img = document.querySelector('img')
+        document.addEventListener('mousemove', function(e) {
+            console.log(e.pageX);
+            console.log(e.pageY);
+            img.style.left = e.pageX + 'px'
+            img.style.top = e.pageY + 'px'
+        })
+    </script>
+</body>
+
+</html>

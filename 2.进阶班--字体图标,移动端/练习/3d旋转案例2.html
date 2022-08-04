@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        
+        ul li {
+            width: 100px;
+            height: 40px;
+            transform-style: preserve-3d;
+            position: relative;
+            transition: all 0.8s;
+        }
+        
+        ul li:hover {
+            transform: rotateX(-90deg);
+        }
+        
+        ul li a {
+            position: absolute;
+            /* left: 0; */
+            /* top: 0; */
+            text-align: center;
+            line-height: 40px;
+            display: block;
+            text-decoration: none;
+            width: 100%;
+        }
+        
+        ul li a:first-child {
+            background-color: green;
+            transform: rotateZ(20px);
+        }
+        
+        ul li a:last-child {
+            background-color: #678;
+            transform: rotateX(90deg) translateZ(20px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul>
+            <li>
+                <a href="#">注册</a>
+                <a href="#">register</a>
+            </li>
+            <!-- <li>
+                <a href=""></a>
+                <a href=""></a>
+            </li>
+            <li>
+                <a href=""></a>
+                <a href=""></a>
+            </li> -->
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        input {
+            box-sizing: border-box;
+            outline: 0;
+            padding-left: 10px;
+        }
+        
+        button {
+            border: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .wrapper {
+            margin: 50px 100px;
+            border: 1px solid black;
+        }
+        
+        .wrapper .user_head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: gray;
+        }
+        
+        td {
+            padding: 20px 0;
+        }
+        
+        .wrapper .user_body table {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .wrapper .user_body table tr:nth-child(-n+4) input {
+            width: 300px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        
+        .wrapper .user_body table tr:last-child td:last-child button {
+            width: 300px;
+            height: 30px;
+            border: 1px solid gray;
+            /* background-color: red; */
+        }
+        
+        .wrapper .user_body table tr {
+            margin-top: 10px;
+        }
+        
+        .wrapper .user_body table tr td:first-child {
+            padding-right: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="user_head">
+            <h2>注册新用户</h2>
+            <h3>我有账号,去<a href="#"><strong>登录</strong></a></h3>
+        </div>
+        <div class="user_body">
+            <table>
+                <tr>
+                    <td>用户名:</td>
+                    <td><input type="text" placeholder="用户名"></td>
+                </tr>
+                <tr>
+                    <td>邮箱:</td>
+                    <td><input type="email" placeholder="邮箱"></td>
+                </tr>
+                <tr>
+                    <td>登录密码:</td>
+                    <td><input type="password" placeholder="设置登录密码" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>确认密码:</td>
+                    <td><input type="password" placeholder="再次确认密码"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="checkbox" class="xieyi"><span>同意协议并注册《品优购用户协议》</span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" disabled="false">完成注册</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        let input = document.querySelector('.xieyi')
+        let btn = document.querySelector('button')
+        input.addEventListener('input', function() {
+            btn.disabled = !input.checked
+            if (input.checked === true) {
+                btn.style.backgroundColor = 'red'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 300px;
+    height: 550px;
+    background-color: #fff;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gray {
+    color: rgb(180, 192, 192);
+}

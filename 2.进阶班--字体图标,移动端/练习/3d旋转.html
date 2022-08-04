@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            float: left;
+            font-size: 16px;
+            width: 100px;
+            height: 40px;
+            background-color: red;
+            margin: auto;
+            transition: all .5ss;
+            transform-style: preserve-3d;
+        }
+        
+        .container:hover {
+            transform: rotateX(-90deg);
+        }
+        
+        .front,
+        .top {
+            width: 100px;
+            height: 100%;
+            background-color: green;
+        }
+        
+        .front {
+            box-sizing: border-box;
+            padding-bottom: -10px;
+            transform: translateZ(20px);
+        }
+        
+        .top {
+            box-sizing: border-box;
+            background-color: skyblue;
+            transform: rotateX(90deg) translateZ(60px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="front">前</div>
+        <div class="top">上</div>
+    </div>
+    <div class="container">
+        <div class="front">前</div>
+        <div class="top">上</div>
+    </div>
+</body>
+
+</html>

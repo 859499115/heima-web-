@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let per = {
+            age: 18,
+            sex: '男',
+            hobby: 'IT',
+            saying: function() {
+                console.log('说话');
+            },
+            eating: function() {
+                // alert('吃饭')
+                console.log('吃饭');
+            }
+        }
+        per.saying() //访问方法saying
+        per.eating()
+            // document.write(per.saying())
+            // console.log(per.saying());
+
+        // console.log(per);
+        //访问属性和方法,属性是静态特征,方法是动态特征
+        //1.利用 for in 循环遍历对象
+        // for (let k in per) {
+        //     console.log(k);
+        //     console.log(per[k]);
+        // }
+    </script>
+</body>
+
+</html>

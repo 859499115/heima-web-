@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        
+        .wrapper .tab_head ul {
+            display: flex;
+        }
+        
+        .wrapper .tab_head ul li {
+            padding: 5px 10px;
+        }
+        
+        .wrapper .tab_head ul li:hover {
+            cursor: default;
+        }
+        
+        .wrapper .products {
+            flex: 1;
+            border: 1px solid gray;
+        }
+        
+        .wrapper .products ul {
+            position: relative;
+        }
+        
+        .wrapper .products ul li {
+            position: absolute;
+        }
+        
+        .wrapper .products ul,
+        li:first-child {
+            z-index: 11111;
+        }
+        
+        .wrapper .products ul,
+        li a {
+            display: block;
+        }
+        
+        .wrapper .products ul {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wrapper .products ul li {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wrapper .products ul li a {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wrapper .products ul li a img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .active {
+            border-top: 2px solid red;
+            color: red;
+        }
+        
+        .exchange {
+            z-index: 20000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 版心wrapper -->
+    <div class="wrapper">
+        <!-- tab模块 -->
+        <div class="tab_head">
+            <ul>
+                <li class="list_item active">国际品牌</li>
+                <li class="list_item">国妆名牌</li>
+                <li class="list_item">男士用品</li>
+                <li class="list_item">清洁品牌</li>
+            </ul>
+        </div>
+        <!-- products模块 -->
+        <div class="products">
+            <ul>
+                <li class="main">
+                    <a href=""><img src="../5.images/guojidapai.jpg" alt=""></a>
+                </li>
+                <li class="main">
+                    <a href=""><img src="../5.images/guozhuangmingpin.jpg" alt=""></a>
+                </li>
+                <li class="main">
+                    <a href=""><img src="../5.images/nanshijingpin.jpg" alt=""></a>
+                </li>
+                <li class="main">
+                    <a href=""><img src="../5.images/qingjieyongpin.jpg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        //获取元素list_item,main
+        let list_items = document.querySelectorAll('.list_item')
+            // console.log(list_items);
+        let mains = document.querySelectorAll('.main')
+            // console.log(mains);
+            //注册事件
+            //当点击list_item,调出对应的main
+        for (let i = 0; i < list_items.length; i++) {
+            // console.log(list_items[i]);
+            //点击事件
+            list_items[i].addEventListener('click', function() {
+                //排他思想
+                for (let j = 0; j < list_items.length; j++) {
+                    list_items[j].classList.remove('active')
+                    mains[j].classList.remove('exchange')
+                }
+                this.classList.add('active')
+                mains[i].classList.add('exchange')
+            })
+        }
+    </script>
+</body>
+
+</html>

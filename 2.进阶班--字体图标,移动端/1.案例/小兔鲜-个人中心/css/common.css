@@ -1,0 +1,15 @@
+.wrapper {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.gray {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #999999 !important;
+    letter-spacing: 0.16px !important;
+}
+
+a {
+    font-size: 16px;
+}

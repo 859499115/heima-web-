@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>我是第1个</li>
+        <li>我是第2个</li>
+        <li>我是第3个</li>
+        <li>我是第4个</li>
+    </ul>
+    <script>
+        let lis = document.querySelectorAll('li')
+        console.log(lis);
+        //     // for (let i = 0; i < lis.length; i++) {
+        //     lis[i].addEventListener('click', function() {
+        //         console.log(i);
+        //     })
+        // }
+        //         lis.forEach(function(index){
+        //             (function(index){
+        //                 console.log(index);
+        //             }(index))
+        //         })
+        //
+        // for (let i = 0; i < lis.length; i++) {
+        //     (function(i) {
+        //         lis[i].addEventListener('click', function() {
+        //             console.log(i);
+        //         })
+        //     }(i))
+        // }
+
+        lis.forEach(function(value, index, lis) {
+            (function(index) {
+                lis[index].addEventListener('click', function() {
+                    console.log(index);
+                    console.log(value.innerHTML);
+                    value.opicty = 0
+                })
+            }(index))
+        })
+    </script>
+</body>
+
+</html>

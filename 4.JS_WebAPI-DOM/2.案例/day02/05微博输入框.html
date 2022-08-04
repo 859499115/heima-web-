@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h3 {
+            color: rgb(10, 50, 134);
+        }
+        
+        textarea {
+            box-sizing: border-box;
+            width: 18.75rem;
+            height: 6.25rem;
+            outline: 0;
+        }
+        
+        .bottom {
+            width: 18.75rem;
+            text-align: right;
+        }
+        
+        .bottom span {
+            color: gray;
+        }
+        
+        input {
+            padding: .125rem .375rem;
+            color: #fff;
+            background: rgba(21, 14, 240, 0.8);
+            border-radius: .25rem;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h3>有什么新鲜事分享?</h3>
+        <textarea name="" id="" cols="30" rows="10" maxlength="200" placeholder="输入你的微博信息"></textarea>
+        <div class="bottom">
+            <span class="userTextLength">0</span>
+            <span>/</span>
+            <span>200</span>
+            <input type="submit" value="发布">
+        </div>
+    </div>
+    <script>
+        // 获取元素
+        let textarea = document.querySelector('textarea')
+        let userText = document.querySelector('.userTextLength')
+        let submit = document.querySelector('input')
+            //textarea输入信息后,检测其字符串长度
+        textarea.addEventListener('input', function() {
+            // console.log(textarea.value.length);
+            userText.innerHTML = textarea.value.length
+        })
+    </script>
+</body>
+
+</html>

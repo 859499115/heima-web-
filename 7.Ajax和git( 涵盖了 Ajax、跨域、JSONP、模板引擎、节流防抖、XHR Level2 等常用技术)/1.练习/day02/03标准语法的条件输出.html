@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <script src="../template-web.js"></script>
+</head>
+
+<body>
+    <script type="text/html" id="hobby">
+        <!-- 遍历数组 -->
+        <!-- hobby是数组名,index数组索引号,value是数组值 -->
+        {{each hobby}}
+        <li>
+            {{$index}}{{$value}}
+        </li>
+        {{/each}}
+    </script>
+    <script>
+        let data = {
+            hobby: ['阅读', '健身', '听音乐']
+        }
+        let htmlStr = template('hobby', data)
+        console.log(htmlStr);
+        $('body').html(htmlStr)
+    </script>
+</body>
+
+</html>

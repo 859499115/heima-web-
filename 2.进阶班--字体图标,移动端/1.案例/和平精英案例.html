@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            /* 溢出元素隐藏 */
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            /* background-color: green; */
+            background-color: rgb(222, 216, 216, .2);
+        }
+        
+        .product {
+            width: 300px;
+            height: 180px;
+            position: relative;
+        }
+        
+        .product::after {
+            content: '';
+            /* 设置透明度为0,不可见相当于display:none隐藏元素 */
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* 使用transform时注意层叠性,使用复合写法 */
+            /* transform: translate(-50%, -50%) scale(7); */
+            margin-top: -29px;
+            margin-left: -29px;
+            display: block;
+            width: 58px;
+            height: 58px;
+            background: url(../2.images/play.png);
+            transform: scale(7);
+            transition: all 1s;
+        }
+        
+        .box:hover .product::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        p {
+            padding: 10px 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="product"><img src="../2.images/party.jpeg" alt=""></div>
+        <p>【和平精英】“初火”音乐概念片：四圣觉醒</p>
+        <span></span>
+    </div>
+</body>
+
+</html>

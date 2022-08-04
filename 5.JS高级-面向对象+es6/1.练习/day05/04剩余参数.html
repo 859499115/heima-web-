@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //剩余参数
+        //第一个形参对应第一个实参
+        //第二个形参前面加...,则剩余的实参作为数组传递给形参
+        let num = (num1, ...num2) => {
+            console.log(num1); //1
+            console.log(num2); //[2,3,45]
+        }
+        num(1, 2, 3, 45)
+        console.log('.........................');
+        let arr = (...arr1) => {
+            let sum = 0
+            arr1.forEach((value) => {
+                    sum += value
+                })
+                //或者简写
+                // arr1.forEach(value => sum += value)
+            return sum
+        }
+        console.log(arr(10, 20));
+        console.log(arr(10, 20, 30));
+        let arr3 = [1, 2, 3]
+        console.log(1, 2, 3); //1 2 3
+        console.log(...arr3); //1 2 3
+        console.log(arr3);
+        console.log(arr3[0]);
+    </script>
+</body>
+
+</html>

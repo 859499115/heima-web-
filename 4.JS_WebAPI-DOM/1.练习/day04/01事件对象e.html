@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        let btn = document.querySelector('button')
+            //事件对象一般用e,event,ev获取 e是对象{}
+        btn.addEventListener('click', function(e) {
+            console.log(e); //获得e是伪数组
+            for (let k in e) {
+                console.log(k);
+            }
+        })
+    </script>
+</body>
+
+</html>

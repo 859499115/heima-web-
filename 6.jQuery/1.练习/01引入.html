@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            background-color: green;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        console.log($('div'));
+        // $('div').hide()
+        //jquery修改css属性样式
+        // $('div').css('background', 'red')
+        //转化为DOM对象修改属性
+        $('div')[0].style.backgroundColor = '#ccc'
+    </script>
+</body>
+
+</html>

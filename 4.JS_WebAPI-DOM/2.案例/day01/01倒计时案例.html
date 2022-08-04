@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta quibusdam eaque perspiciatis iste voluptatem magnam excepturi culpa vero, libero minus aspernatur dolore animi suscipit dolorum blanditiis vitae dignissimos? Cupiditate!Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto soluta quibusdam eaque perspiciatis iste voluptatem magnam excepturi culpa vero, libero minus aspernatur dolore animi suscipit dolorum blanditiis vitae dignissimos? Cupiditate!</textarea>
+    <button>我已经阅读协议(6)s</button>
+    <script>
+        //1.获取元素
+        let btn = document.querySelector('button')
+            //2.修改内容
+        let i = 6
+            //开启定时器
+        function exchange() {
+            i-- //每隔一秒减1
+            btn.innerHTML = `我已经阅读协议(${i})s` //修改元素内容
+            if (i === 0) {
+                clearInterval(timer) //关闭定时器
+                btn.innerHTML = '我已经同意'
+            }
+        }
+        //关闭定时器
+        let timer = setInterval(exchange, 1000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let person = {
+                uname: '张鹏举',
+                age: 26,
+                sex: '男',
+                address: '无锡市'
+            }
+            //1.打印对象对应属性(访问属性/方法)
+        console.log(person.uname) //打印uname属性值
+        console.log(person['uname']) //方法2
+            //2.重新赋值
+        person.uname = '帅哥'
+        console.log(person.uname) //属性值改变,输出为帅哥
+            //3.新增属性/方法
+        person.sing = function() {
+                console.log('唱歌');
+            } //新增方法
+        person.sing() //访问方法
+        person.hoppy = '唱歌' //新增属性
+        console.log(person.hoppy)
+            //4.遍历对象--属性和属性值
+            //利用for in循环;k是变量
+            //  1)遍历属性名
+        for (let k in person) {
+            console.log(k) //打印所有属性名
+            console.log(person[k]) //打印所有属性值
+        }
+    </script>
+</body>
+
+</html>

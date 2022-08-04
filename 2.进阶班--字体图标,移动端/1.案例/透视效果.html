@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 1000px;
+        }
+        
+        .container {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            margin: 200px auto;
+            background-color: red;
+            text-align: center;
+            transition: all 1s;
+        }
+        
+        .container:hover {
+            cursor: pointer;
+            transform: translateZ(-200px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        2222
+    </div>
+</body>
+
+</html>

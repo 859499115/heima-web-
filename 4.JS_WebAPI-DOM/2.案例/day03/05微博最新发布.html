@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微博最新发布</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .contain {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        .contain textarea {
+            outline: 0;
+            padding-left: 10px;
+        }
+        
+        .contain img {
+            width: 190px;
+        }
+        
+        .contain .release {
+            margin-top: 5px;
+            color: #ccc;
+            text-align: right;
+        }
+        
+        .contain .release input {
+            padding: 2px 10px;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            background: rgb(0, 132, 255);
+        }
+        
+        .contain .release input:hover {
+            background: linear-gradient(transparent, red);
+        }
+        
+        .containList {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        li {
+            position: relative;
+            width: 500px;
+            padding-bottom: 10px;
+            border-bottom: 3px dotted #ccc;
+        }
+        
+        li .info {
+            display: flex;
+            height: 100px;
+        }
+        
+        li .info img {
+            width: 100px;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+        
+        li .info .uname {
+            margin-top: 20px;
+        }
+        
+        li .info .sentTime {
+            color: #ccc;
+            font-size: 13px;
+        }
+        
+        li .text_Content {
+            /* 强制换行 */
+            word-break: break-all;
+            margin-left: 120px;
+        }
+        
+        li .text_del {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        li .text_del button {
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border: none;
+        }
+        
+        li .text_del button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <img src="./5.images/9.6/tip.png" alt="">
+        <!-- maxlength 是一个表单属性, 作用是给表单设置一个最大长度 -->
+        <textarea name="" id="" cols="30" rows="5" maxlength="200" placeholder="请输入内容"></textarea>
+        <div class="release">
+            <span>0</span>
+            <span>/</span>
+            <span>200</span>
+            <input type="button" value="发布">
+        </div>
+    </div>
+    <div class="containList">
+        <ul></ul>
+    </div>
+    <script>
+        // 模拟数据
+        let dataArr = [{
+                uname: '司马懿',
+                imgSrc: './5.images/9.5/01.jpg'
+            }, {
+                uname: '女娲',
+                imgSrc: './5.images/9.5/02.jpg'
+            }, {
+                uname: '百里守约',
+                imgSrc: './5.images/9.5/03.jpg'
+            }, {
+                uname: '亚瑟',
+                imgSrc: './5.images/9.5/04.jpg'
+            }, {
+                uname: '虞姬',
+                imgSrc: './5.images/9.5/05.jpg'
+            }, {
+                uname: '张良',
+                imgSrc: './5.images/9.5/06.jpg'
+            }, {
+                uname: '安其拉',
+                imgSrc: './5.images/9.5/07.jpg'
+            }, {
+                uname: '李白',
+                imgSrc: './5.images/9.5/08.jpg'
+            }, {
+                uname: '阿珂',
+                imgSrc: './5.images/9.5/09.jpg'
+            }, {
+                uname: '墨子',
+                imgSrc: './5.images/9.5/10.jpg'
+            }, {
+                uname: '鲁班',
+                imgSrc: './5.images/9.5/11.jpg'
+            }, {
+                uname: '嬴政',
+                imgSrc: './5.images/9.5/12.jpg'
+            }, {
+                uname: '孙膑',
+                imgSrc: './5.images/9.5/13.jpg'
+            }, {
+                uname: '周瑜',
+                imgSrc: './5.images/9.5/14.jpg'
+            }, {
+                uname: '老夫子',
+                imgSrc: './5.images/9.5/15.jpg'
+            }, {
+                uname: '狄仁杰',
+                imgSrc: './5.images/9.5/16.jpg'
+            }, {
+                uname: '扁鹊',
+                imgSrc: './5.images/9.5/17.jpg'
+            }, {
+                uname: '马可波罗',
+                imgSrc: './5.images/9.5/18.jpg'
+            }, {
+                uname: '露娜',
+                imgSrc: './5.images/9.5/19.jpg'
+            }, {
+                uname: '孙悟空',
+                imgSrc: './5.images/9.5/20.jpg'
+            }, {
+                uname: '黄忠',
+                imgSrc: './5.images/9.5/21.jpg'
+            }, {
+                uname: '百里玄策',
+                imgSrc: './5.images/9.5/22.jpg'
+            }, ]
+            //获取input,span,textarea元素
+        let textarea = document.querySelector('textarea')
+        let btn = document.querySelector('.contain .release input')
+        let str = document.querySelector('.contain .release span:first-child')
+        let ul = document.querySelector('.containList ul')
+            //1.注册textarea事件
+        textarea.addEventListener('input', function() {
+            str.style.color = 'red'
+            str.innerHTML = this.value.length
+        })
+
+        //2.注册btn的点击事件
+        btn.addEventListener('click', function() {
+                //trim去掉空字符串
+                //设置不能发布空内容,空格不能发布
+                if (textarea.value.trim() === '') {
+                    textarea.value = ''
+                    str.innerHTML = 0
+                    return alert('请输入内容')
+                }
+                //触发click事件后,创建追加li
+                let li = document.createElement('li') //创建li
+                ul.insertBefore(li, ul.children[0]) //追加li,最新在前
+                    //抽取随机数
+                function getRandom(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1) + min)
+                }
+                let random = getRandom(0, dataArr.length - 1)
+                    //修改追加元素内容
+                li.innerHTML = `
+            <div class="info">
+                <img src=${dataArr[random].imgSrc} alt="">
+                <div class="uname">
+                    <span><b>${dataArr[random].uname}</b></span>
+                    <div class="sentTime">${new Date().toLocaleString()}</div>
+                </div>
+            </div>
+            <div class="text_Content">${textarea.value}</div>
+            <div class="text_del">
+                <button>X</button>
+            </div>
+            `
+                    //发布完textarea恢复初始状态
+                textarea.value = ''
+                str.innerHTML = 0
+                    //注册删除事件
+                    // 获取元素text_del
+                let del = document.querySelector('.text_del')
+                    //注册点击删除li事件
+                del.addEventListener('click', function() {
+                    ul.removeChild(li)
+                })
+            })
+            //绑定事件键盘案件keyup
+            // 点击Enter发布内容
+        textarea.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                btn.click()
+            }
+        })
+    </script>
+</body>
+
+</html>

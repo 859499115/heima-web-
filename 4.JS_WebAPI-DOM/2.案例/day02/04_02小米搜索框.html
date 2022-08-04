@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 150px;
+            margin: 0 auto;
+        }
+        
+        input {
+            box-sizing: border-box;
+            width: 150px;
+            height: 30px;
+            padding-left: 10px;
+            outline: 0;
+            border: 1px solid black;
+        }
+        
+        ul {
+            box-sizing: border-box;
+            width: 150px;
+            list-style: none;
+            border: 1px solid red;
+            border-top: 0;
+        }
+        
+        ul li {
+            padding-left: 10px;
+        }
+        
+        .bianhua {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" placeholder="小米笔记本">
+        <ul style="display: none;">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <script>
+        // 获取元素
+        let input = document.querySelector('input')
+        let ul = document.querySelector('ul')
+            //注册事件,focus和blur
+            //1.当聚焦input时,显示下拉框ul
+        input.addEventListener('focus', function() {
+                ul.style.display = 'block'
+                    //追加类名,聚焦时,input框变化,不会覆盖之前属性
+                    // input.style.border = '1px solid red'
+                input.classList.add('bianhua')
+            })
+            //2.当input失去焦点,失去下拉框ul
+        input.addEventListener('blur', function() {
+            ul.style.display = 'none'
+                //失去焦点时,input不变化
+                // input.style.border = '1px solid black' //覆盖原有属性
+            input.classList.remove('bianhua')
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+//具体文件base和normalize导出到index.less文件中
+//对应的css文件在index.css文件中生成
+//Easy less插件已设置less文件导出到默认的css文件夹中
+@import 'base.less';
+@import 'normalize';
+@bac_color:#fff;
+@gray:#B4B4B4;
+@rootsize: (15/37.5rem);
+body{
+    background-color: #f0f0f0;
+}
+.content{
+    padding-bottom: 50px;
+.adv{
+    a{
+        width: 100%;
+    }
+ }
+ .header{
+     background-color: @bac_color;
+ h4{
+     padding: (10/37.5rem) 0 (14/37.5rem) (5/37.5rem);
+     font-size: (14/37.5rem);
+     color: #3C3C3C;
+     letter-spacing: 0.01px;
+ }
+ }
+ .common {
+     background-color: @bac_color;
+     margin-bottom: (10/37.5rem);
+     // &表示父级元素
+     &>a{
+         position: relative;
+         display: block;
+         .iconfont{
+             position: absolute;
+             font-size: (24/37.5rem);
+            //  width: (24/37.5rem);
+            //  height: (24/37.5rem);
+             right: (18/37.5rem);
+            //  background-color: #FE6249;
+             top: @rootsize;
+             color: @bac_color;
+            //  border: (1/37.5rem) solid #FFFFFF;
+            //  border-radius: 50%;
+         }
+         &::after{
+             content: '进行中';
+             position: absolute;
+             left: @rootsize;
+             top: (-4/37.5rem);
+             display: block;
+             width: (68/37.5rem);
+             height: (29/37.5rem);
+             line-height: (20/37.5rem);
+             background: url(../images/status_active.png) no-repeat center;
+             background-size: cover;
+             font-size: (12/37.5rem);
+             color: @bac_color;
+             text-align: center;
+         }
+     }
+     .txt{
+         display: flex;
+         padding: (8/37.5rem) (15/37.5rem) (15/37.5rem);
+         font-size: (15/37.5rem);
+         color: #3C3C3C;
+         letter-spacing: 0.21px;
+         line-height: 21px;
+         a{
+             margin-left: (30.5/37.5rem);
+             font-size: @rootsize;
+             color: #FE6249;
+         }
+       }
+     .foot{
+         padding-bottom: (11/37.5rem);
+         span{
+             color: @gray;
+             font-size: (14/37.5rem);
+         }
+         .iconfont{
+             padding-left: (15/37.5rem);
+             padding-right: (7/37.5rem);
+         }
+         &:last-child{
+             em{
+                 padding-left: (@rootsize);
+                 padding-right: (5/37.5rem);
+             }
+         }
+     }
+ }
+}
+//footer开始
+footer{
+    //固定定位
+    position: fixed;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: (49/37.5rem);
+    background: #FECA49;
+    ul{
+        display: flex;
+        justify-content:space-around;
+        li{
+            a{
+                display: flex;
+                //改变flex布局的主轴方向为垂直方向
+                flex-direction: column;
+                text-align: center;
+                font-size: (11/37.5rem);
+                .iconfont{
+                    padding-top: (6.8/37.5rem);
+                    padding-bottom: (4/37.5rem);
+                }
+                &:hover{
+                    color: @bac_color;
+                }
+            }
+         }
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .contain {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 250px;
+            height: 300px;
+            margin: 0 auto;
+            text-align: center;
+            /* 线性渐变 */
+            background: linear-gradient(transparent, green);
+        }
+        
+        .contain p:nth-child(2) {
+            font-size: 40px;
+        }
+        
+        .contain span {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            background-color: gray;
+        }
+        
+        .contain .timer {
+            display: flex;
+            justify-content: center;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <p>今天是2022年6月5日</p>
+        <p>上班倒计时</p>
+        <div class="timer">
+            <span></span>:
+            <span></span>:
+            <span></span>
+        </div>
+        <p>上班时间是19:00:00</p>
+    </div>
+    <script>
+        let contain = document.querySelector('.contain')
+        let timer = document.querySelector('.timer')
+        getTime() //先调用函数,避免刷新网页空白
+        setInterval(getTime, 1000)
+
+        function getTime() {
+            let date = +new Date() //获取当前时间戳
+            let time = +new Date('2022-6-5 19:00:00') //获取指定时间时间戳
+                //1.得到总秒数
+            let count = (time - date) / 1000
+                //2.得到h小时
+            let h = parseInt(count / 60 / 60 % 24)
+                //判断时间是否小于10,小于+0
+            h = h < 10 ? '0' + h : h
+                // console.log(h);
+            let m = parseInt(count / 60 % 60)
+            m = m < 10 ? '0' + m : m
+                // console.log(m);
+            let s = parseInt(count % 60)
+            s = s < 10 ? '0' + s : s
+                // console.log(s);
+            timer.children[0].innerHTML = h
+            timer.children[1].innerHTML = m
+            timer.children[2].innerHTML = s
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="/5.images/01tu.jpg" alt="图片" title="图片">
+    <script>
+        //1.获取元素
+        let pColor = document.querySelector('img')
+            //2.设置元素属性
+        pColor.title = '更改title' //修改元素属性
+        pColor.src = '/5.images/02tu.jpg'
+    </script>
+</body>
+
+</html>

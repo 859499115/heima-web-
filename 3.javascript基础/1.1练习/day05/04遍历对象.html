@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //遍历对象
+        let person = {
+                uname: '张鹏举',
+                age: 26,
+                sex: '男',
+                address: '无锡市'
+            }
+            // console.log(person)
+            //1.遍历属性名
+        for (let k in person) {
+            console.log(k) //遍历属性名,
+            console.log(person[k]) //遍历属性值
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+.w {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.w ul {
+    float: right;
+}
+
+.w ul li {
+    float: left;
+}

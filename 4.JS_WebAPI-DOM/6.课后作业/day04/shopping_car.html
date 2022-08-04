@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        i,
+        em {
+            font-style: normal;
+        }
+        
+        .red {
+            color: red;
+        }
+        
+        th {
+            height: 50px;
+        }
+        
+        td,
+        th {
+            text-align: center;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .shopping_car {
+            width: 800px;
+            margin: 0 auto;
+        }
+        
+        .shopping_car table {
+            width: 100%;
+            border-collapse: collapse
+        }
+        
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        .shopping_car table tr td:nth-child(4) {
+            text-align: center;
+        }
+        
+        .shopping_car table tr td:nth-child(4) button {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .shopping_car table tr td:nth-child(4) input {
+            width: 50px;
+            height: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        .shopping_car table tr td button.del {
+            border: none;
+            cursor: pointer;
+        }
+        
+        .shopping_car_bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+        
+        .shopping_car_bottom .goods_del span:first-child {
+            margin-right: 60px;
+        }
+        
+        .shopping_car_bottom .pay button {
+            width: 80px;
+            height: 50px;
+            margin-left: 10px;
+            color: #fff;
+            font-size: 20px;
+            background-color: red;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shopping_car">
+        <table>
+            <tr>
+                <th>
+                    <input type="checkbox" class="all_check">
+                    <span class="all_check_text">全选</span>
+                </th>
+                <th>商品</th>
+                <th>单价</th>
+                <th>商品数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td><img src="./images/01.jpg" alt="">
+                    <p class="goods">牛奶</p>
+                </td>
+                <td><i class="price">5</i>¥</td>
+                <td>
+                    <button class="reduce">-</button>
+                    <input type="text" value="1" class="num">
+                    <button class="add">+</button>
+                </td>
+                <td><i class="total">5</i>¥</td>
+                <td><button class="del">删除</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td><img src="./images/01.jpg" alt="">
+                    <p>牛奶</p>
+                </td>
+                <td><i class="price">10</i>¥</td>
+                <td>
+                    <button class="reduce">-</button>
+                    <input type="text" value="1" class="num">
+                    <button class="add">+</button>
+                </td>
+                <td><i class="total">10</i>¥</td>
+                <td><button class="del">删除</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td><img src="./images/01.jpg" alt="">
+                    <p>牛奶</p>
+                </td>
+                <td><i class="price">15</i>¥</td>
+                <td>
+                    <button class="reduce">-</button>
+                    <input type="text" value="1" class="num">
+                    <button class="add">+</button>
+                </td>
+                <td><i class="total">15</i>¥</td>
+                <td><button class="del">删除</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td><img src="./images/01.jpg" alt="">
+                    <p>牛奶</p>
+                </td>
+                <td><i class="price">20</i>¥</td>
+                <td>
+                    <button class="reduce">-</button>
+                    <input type="text" value="1" class="num">
+                    <button class="add">+</button>
+                </td>
+                <td><i class="total">20</i>¥</td>
+                <td><button class="del">删除</button></td>
+            </tr>
+        </table>
+        <div class="shopping_car_bottom">
+            <div class="goods_del">
+                <span>删除所选商品</span>
+                <span>清理购物车</span>
+            </div>
+            <div class="pay">
+                <span>已经选中<i class="red total_count">0</i>件商品;总价: <b class="red" id="total_pay">&nbsp;0  ¥</b></span>
+                <button>去结算</button>
+            </div>
+        </div>
+    </div>
+    <script src="./car.js"></script>
+</body>
+
+</html>

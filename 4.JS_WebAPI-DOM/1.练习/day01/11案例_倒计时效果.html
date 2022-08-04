@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- lorem可以打印一段废话文字 -->
+    <textarea name="" id="" cols="10" rows="10">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod explicabo autem beatae, voluptates rerum vel cumque dolores repellendus facere optio eos doloremque qui distinctio quae in dolore consequuntur aliquid quas!</textarea>
+    <!-- disabled禁用 -->
+    <!-- <input type="button" value="" disabled> -->
+    <button disabled>我已经阅读6s</button>
+    <input type="checkbox">
+    <script>
+        //获取元素
+        let btn = document.querySelector('button')
+        let input = document.querySelector('input')
+            //开启定时器setInterval
+        let i = 6
+
+        function start() {
+            i--
+            btn.innerHTML = `我已经阅读${i}s`
+            if (i === 0) {
+                clearInterval(timer)
+                btn.innerHTML = '我已经同意'
+                btn.disabled = false
+                input.checked = true
+            }
+        }
+        let timer = setInterval(start, 1000) //2秒后开启按钮功能
+    </script>
+</body>
+
+</html>

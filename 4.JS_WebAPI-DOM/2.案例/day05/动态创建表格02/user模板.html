@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+    <h1>新增学员</h1>
+    <div class="info">
+        姓名：<input type="text" class="uname"> 年龄：
+        <input type="text" class="age"> 性别: <select name="gender" id="" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select> 学号：
+        <input type="text" class="stuId"> 薪资：
+        <input type="text" class="salary"> 就业城市：
+        <select name="city" id="" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+
+    </select>
+        <button class="add">录入</button>
+    </div>
+
+    <h1>就业榜</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>就业城市</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        //本地存储
+        function getLocalData() {
+            let data = localStorage.getItem('data')
+            if (data) {
+                return JSON.parse(data)
+            } else {
+                //  1. 准备好数据后端的数据
+                let arr = [{
+                    stuId: 1001,
+                    uname: '欧阳霸天',
+                    age: 19,
+                    gender: '男',
+                    salary: '20000',
+                    city: '上海'
+                }, {
+                    stuId: 1002,
+                    uname: '令狐霸天',
+                    age: 29,
+                    gender: '男',
+                    salary: '30000',
+                    city: '北京'
+                }, {
+                    stuId: 1003,
+                    uname: '诸葛霸天',
+                    age: 39,
+                    gender: '男',
+                    salary: '2000',
+                    city: '北京'
+                }, ]
+                localStorage.setItem('data', JSON.stringify(arr))
+            }
+        }
+
+        //创建tr,追加到tbody中
+        let tbody = document.querySelector('tbody')
+        let arr = getLocalData()
+
+        function setTr() {
+            console.log(arr);
+            //每次tbody清空,重新录入arr中的数据
+            tbody.innerHTML = ''
+            for (let i = 0; i < arr.length; i++) {
+                //创建tr
+                let tr = document.createElement('tr')
+                tr.innerHTML = `
+                <td>${arr[i].stuId}</td>
+                <td>${arr[i].uname}</td>
+                <td>${arr[i].age}</td>
+                <td>${arr[i].gender}</td>
+                <td>${arr[i].salary}</td>
+                <td>${arr[i].city}</td>
+                <td>
+                    <a href="javascript:" id="${i}">删除</a>
+                </td>
+                `
+                    //追加到tbody中
+                tbody.appendChild(tr)
+            }
+        }
+        setTr()
+            // 2. 给按钮绑定点击事件
+        let add = document.querySelector('.add')
+        add.addEventListener('click', function() {
+                // 3. 获取用户输入的数据
+                let uname = document.querySelector('.uname').value
+                let age = document.querySelector('.age').value
+                let gender = document.querySelector('.gender').value
+                let city = document.querySelector('.city').value
+                let salary = document.querySelector('.salary').value
+                let stuId = document.querySelector('.stuId').value
+                    //先增加数组内容
+                arr.push({
+                        stuId: stuId,
+                        uname: uname,
+                        gender: gender,
+                        age: age,
+                        city: city,
+                        salary: salary
+                    })
+                    // 4. 将新增数组内容重新数据存储到本地存储中
+                localStorage.setItem('data', JSON.stringify(arr))
+                    // 4. 将数据渲染到页面上
+                setTr()
+            })
+            // 5. 给tbody绑定点击事件
+        tbody.addEventListener('click', function(e) {
+            if (e.target.nodeName == 'A') {
+                // let index = e.target.parentNode.parentNode.rowIndex
+                arr.splice(e.target.id, 1)
+                localStorage.setItem('data', JSON.stringify(arr))
+                setTr()
+            }
+        })
+    </script>
+</body>
+
+</html>

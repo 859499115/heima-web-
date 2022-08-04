@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        li {
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .contain {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        textarea {
+            padding-left: 10px;
+            outline: none;
+        }
+        
+        .contain img {
+            width: 190px;
+        }
+        
+        .send {
+            text-align: right;
+        }
+        
+        .send span:first-child {
+            color: red;
+        }
+        
+        input {
+            width: 90px;
+            height: 23px;
+            line-height: 23px;
+            text-align: center;
+            color: #fff;
+            background-color: #0084ff;
+            border: none;
+        }
+        
+        ul {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        ul .info img {
+            width: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        
+        ul .info {
+            display: flex;
+            position: relative;
+        }
+        
+        ul .info .uname {
+            margin-top: 20px;
+        }
+        
+        ul .info .uname .time {
+            color: #ccc;
+        }
+        
+        .del {
+            position: absolute;
+            right: 0;
+        }
+        
+        .del button {
+            height: 20px;
+            width: 20px;
+            border: 0ch;
+        }
+        
+        .del button:hover {
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        
+        ul .send_content {
+            padding-left: 120px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <img src="./5.images/9.6/tip.png" alt="">
+        <textarea maxlength="200" name="" id="" cols="30" rows="10" placeholder="请输入内容"></textarea>
+        <div class="send">
+            <span>0</span>
+            <span>/</span>
+            <span>200</span>
+            <input type="button" value="发布" class="send_btn">
+        </div>
+        <ul></ul>
+    </div>
+
+    <script>
+        // 模拟数据
+        let dataArr = [{
+            uname: '司马懿',
+            imgSrc: './5.images/9.5/01.jpg'
+        }, {
+            uname: '女娲',
+            imgSrc: './5.images/9.5/02.jpg'
+        }, {
+            uname: '百里守约',
+            imgSrc: './5.images/9.5/03.jpg'
+        }, {
+            uname: '亚瑟',
+            imgSrc: './5.images/9.5/04.jpg'
+        }, {
+            uname: '虞姬',
+            imgSrc: './5.images/9.5/05.jpg'
+        }, {
+            uname: '张良',
+            imgSrc: './5.images/9.5/06.jpg'
+        }, {
+            uname: '安其拉',
+            imgSrc: './5.images/9.5/07.jpg'
+        }, {
+            uname: '李白',
+            imgSrc: './5.images/9.5/08.jpg'
+        }, {
+            uname: '阿珂',
+            imgSrc: './5.images/9.5/09.jpg'
+        }, {
+            uname: '墨子',
+            imgSrc: './5.images/9.5/10.jpg'
+        }, {
+            uname: '鲁班',
+            imgSrc: './5.images/9.5/11.jpg'
+        }, {
+            uname: '嬴政',
+            imgSrc: './5.images/9.5/12.jpg'
+        }, {
+            uname: '孙膑',
+            imgSrc: './5.images/9.5/13.jpg'
+        }, {
+            uname: '周瑜',
+            imgSrc: './5.images/9.5/14.jpg'
+        }, {
+            uname: '老夫子',
+            imgSrc: './5.images/9.5/15.jpg'
+        }, {
+            uname: '狄仁杰',
+            imgSrc: './5.images/9.5/16.jpg'
+        }, {
+            uname: '扁鹊',
+            imgSrc: './5.images/9.5/17.jpg'
+        }, {
+            uname: '马可波罗',
+            imgSrc: './5.images/9.5/18.jpg'
+        }, {
+            uname: '露娜',
+            imgSrc: './5.images/9.5/19.jpg'
+        }, {
+            uname: '孙悟空',
+            imgSrc: './5.images/9.5/20.jpg'
+        }, {
+            uname: '黄忠',
+            imgSrc: './5.images/9.5/21.jpg'
+        }, {
+            uname: '百里玄策',
+            imgSrc: './5.images/9.5/22.jpg'
+        }, ]
+        let textarea = document.querySelector('textarea')
+        let send = document.querySelector('.send')
+        textarea.addEventListener('input', function() {
+            send.children[0].innerHTML = this.value.trim().length
+        })
+
+
+        let date = new Date()
+        send.children[3].addEventListener('click', function() {
+            if (textarea.value.trim() === '') {
+                textarea.value = ''
+                send.children[0].innerHTML = 0
+                return alert('请输入内容')
+            }
+            let ul = document.querySelector('ul')
+            let li = document.createElement('li')
+            ul.insertBefore(li, ul.children[0])
+
+            function getRandom(min, max) {
+                return Math.floor(Math.random() * (max - min - 1) + min)
+            }
+            let random = getRandom(0, dataArr.length - 1)
+            li.innerHTML = `
+            <div class="info">
+                <img src=${dataArr[random].imgSrc} alt="">
+                <div class="uname">
+                    <h4>${dataArr[random].uname}</h4>
+                    <p class="time">${date.toLocaleString()}</p>
+                </div>
+                <div class="del"><button>X</button></div>
+            </div>
+            <div class="send_content">${textarea.value}</div>
+        `
+            textarea.value = ''
+            send.children[0].innerHTML = 0
+            li.addEventListener('click', function(e) {
+                ul.removeChild(e.target.parentNode.parentNode.parentNode)
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

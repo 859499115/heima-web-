@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let data = [1, 2, 3, 4]
+        // let sum = 0
+        // data.forEach(function(value, index, array) {
+        //     sum += value
+        // })
+        // console.log(sum) //10
+        // let data = [1, 2, 3, 4]
+        // let data1 = data.filter(function(value) {
+        //     return value >= 3
+
+        // })
+        // console.log(data1) //[,34]
+        let data = [1, 2, 3, 4]
+            //查找唯一的
+        data.some(function(value) {
+            let arr = []
+            if (value === 3) {
+                arr.push(value)
+                return true
+            }
+            console.log(arr)
+        })
+    </script>
+</body>
+
+</html>

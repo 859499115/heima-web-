@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //声明函数
+        function getNum(max, min) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        //调用函数
+        let num = getNum(1, 10)
+            //无限循环
+        while (true) {
+            let pre = +prompt('请输入数字:')
+            if (pre > num) {
+                alert('你猜大了')
+            } else if (pre < num) {
+                alert('你猜小了')
+            } else {
+                alert('你猜对了')
+                break //退出循环
+            }
+        }
+    </script>
+</body>
+
+</html>

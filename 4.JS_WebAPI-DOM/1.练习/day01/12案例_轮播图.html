@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .img_box {
+            position: relative;
+            width: 700px;
+            height: 320px;
+            margin: 0 auto;
+        }
+        
+        .tie {
+            position: absolute;
+            /* transform: translateY(-100%); */
+            top: 270px;
+            box-sizing: border-box;
+            width: 700px;
+            height: 50px;
+            line-height: 50px;
+            padding-left: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        h3 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img_box">
+        <img src="./5.images/b01.jpg" alt="">
+        <div class="tie">
+            <h3>这是第1张图:挑战云歌单，欢迎你来</h3>
+        </div>
+    </div>
+    <script>
+        // 数据
+        let data = [{
+                imgSrc: './5.images/b01.jpg',
+                title: '挑战云歌单，欢迎你来'
+            }, {
+                imgSrc: './5.images/b02.jpg',
+                title: '田园日记，上演上京记'
+            }, {
+                imgSrc: './5.images/b03.jpg',
+                title: '甜蜜攻势再次回归'
+            }, {
+                imgSrc: './5.images/b04.jpg',
+                title: '我为歌狂，生为歌王'
+            }, {
+                imgSrc: './5.images/b05.jpg',
+                title: '年度校园主题活动'
+            }, {
+                imgSrc: './5.images/b06.jpg',
+                title: 'pink老师新歌发布，5月10号正式推出'
+            }, {
+                imgSrc: './5.images/b07.jpg',
+                title: '动力火车来到西安'
+            }, {
+                imgSrc: './5.images/b08.jpg',
+                title: '钢铁侠3，英雄镇东风'
+            }, {
+                imgSrc: './5.images/b09.jpg',
+                title: '我用整颗心来等你'
+            }, ]
+            //获取元素
+        let img = document.querySelector('.img_box img')
+        let title = document.querySelector('.tie h3')
+        let i = 0
+            //开启定时器
+        function exchange() {
+            //每隔一秒变一次
+            i++
+            img.src = data[i].imgSrc //修改属性
+            title.innerHTML = `这是第${i+1}张图:${data[i].title}` //修改内容
+                //无缝衔接
+            if (i > data.length - 2) {
+                i = -1
+            }
+            //三元表达式
+            // i > data.length - 2 ? i = -1 : i
+        }
+        let timer = setInterval(exchange, 1000)
+    </script>
+</body>
+
+</html>

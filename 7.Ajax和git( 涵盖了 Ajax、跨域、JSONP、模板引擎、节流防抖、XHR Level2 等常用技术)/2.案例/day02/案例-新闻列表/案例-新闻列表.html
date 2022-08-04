@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/news.css" />
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/template-web.js"></script>
+</head>
+
+<body>
+
+    <div id="news-list"></div>
+    <script type="text/html" id="container">
+        {{each data}}
+        <div class="news-item">
+            <img class="thumb" src="{{'http://www.liulongbin.top:3006'+$value.img}}" alt="" />
+            <div class="right-box">
+                <h1 class="title">{{$value.title}}</h1>
+                <div class="tags">
+                    {{each $value.tags}}
+                    <span>{{$value}}</span> {{/each}}
+
+                </div>
+                <div class="footer">
+                    <div>
+                        <span>{{$value.source}}</span>&nbsp;&nbsp;
+                        <span>{{$value.time | dateFormat}}</span>
+                    </div>
+                    <span>评论数：{{$value.cmtcount}}</span>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script>
+        $(function() {
+            //定义过滤器,更改事件格式
+            //date1就是要处理的数据
+            template.defaults.imports.dateFormat = function(date1) {
+                let date = new Date(date1)
+                console.log(date1);
+                var y = date.getFullYear()
+                var m = date.getMonth() + 1
+                var d = date.getDate()
+                let h = date.getHours()
+                let mm = date.getMinutes()
+                let s = date.getSeconds()
+                return y + '-' + m + '-' + d + '-' + h + ':' + mm + ':' + s // 注意，过滤器最后一定要 return 一个值
+            }
+            $.get('http://www.liulongbin.top:3006/api/news', function(res) {
+                console.log(res);
+                if (res.status !== 200) return alert('获取新闻失败')
+                    //将字符串转化为数组split()方法,,分开
+                for (let i = 0; i < res.data.length; i++) {
+                    res.data[i].tags = res.data[i].tags.split(',')
+                }
+                let htmlStr = template('container', res)
+                console.log(res.data);
+                console.log(htmlStr);
+                $('#news-list').html(htmlStr)
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

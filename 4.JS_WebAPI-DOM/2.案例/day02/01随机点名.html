@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            height: 50px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1个input的text表单,一个button -->
+    <input type="text" value="">
+    <br>
+    <button>点击随机点名</button>
+    <script>
+        // 获取元素
+        let input = document.querySelector('input')
+        let btn = document.querySelector('button')
+        let arr = ['黄忠', '马超', '赵云', '关羽', '张飞']
+            //监听事件,事件源.事件.调用函数
+            //抽取随机数函数
+        function exchange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        btn.addEventListener('click', function() {
+            let num = exchange(0, arr.length - 1)
+            input.value = arr[num]
+            console.log(arr[num]);
+            arr.splice(num, 1) //从哪里删删除几个
+            console.log(arr);
+            if (arr.length === 0) {
+                btn.innerHTML = '点名完毕'
+                btn.disabled = true //数组为空时,禁用按钮
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //声明函数
+        function changeNum(q, w) {
+            let temp = ''
+            temp = q
+            q = w
+            w = temp
+            return `${q},${w}`
+        }
+        let num = changeNum(2, 3) //调用函数
+        document.write(num)
+    </script>
+</body>
+
+</html>

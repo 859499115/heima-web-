@@ -1,0 +1,571 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(239, 238, 238);
+}
+
+.kuandu {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.blue {
+    color: #00B4FF;
+}
+
+.head {
+    height: 42px;
+    /* background-color: red; */
+    margin: 0 auto;
+    margin-bottom: 29.84px;
+    margin-top: 31.16px;
+}
+
+.logo {
+    float: left;
+    width: 195px;
+    height: 42px;
+    background: url(./images/logo.png) no-repeat;
+    margin-right: 70px;
+}
+
+.contend {
+    float: left;
+    height: 42px;
+    margin-right: 85.5px;
+}
+
+.contend ul li {
+    float: left;
+    margin-right: 40.5px;
+}
+
+.contend ul li:last-child {
+    margin-right: 0;
+}
+
+.contend ul li a {
+    font-size: 18px;
+    height: 42px;
+    box-sizing: border-box;
+    display: block;
+    padding: 12px 9px 8px 9px;
+}
+
+.contend ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #000000;
+}
+
+.search {
+    float: left;
+    width: 411px;
+    height: 42px;
+    padding-top: 1px;
+    box-sizing: border-box;
+}
+
+.search input {
+    outline: none;
+    float: left;
+    box-sizing: border-box;
+    padding: 12px 0 12px 20.5px;
+    font-size: 14px;
+    width: 360px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    /* margin: 1px 0; */
+    /* margin-top: 1px; */
+    border-right: 0px;
+}
+
+.search input:last-child {
+    width: 50px;
+    height: 40px;
+    box-sizing: border-box;
+    background: url(./images/btn.png) no-repeat;
+    float: left;
+}
+
+.tu {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    margin-left: 31.5px;
+}
+
+.tu::before {
+    content: '';
+    float: left;
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-top: 6px;
+    background: url(./images/user.png) no-repeat;
+}
+
+.tu::after {
+    float: left;
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    margin-left: 6px;
+    content: 'qq-zhang';
+    color: #666666;
+}
+
+.head::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.nav {
+    height: 420px;
+    background-color: #1c036c;
+}
+
+.nav .banner {
+    height: 420px;
+    background: url(./images/banner2.png) no-repeat;
+}
+
+.nav .banner .kecheng-list {
+    float: left;
+    width: 190px;
+    height: 420px;
+    opacity: 0.3;
+    background: #000000;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 21px;
+    padding-top: 13px;
+}
+
+.nav .banner .kecheng-list ul li {
+    height: 44px;
+    line-height: 44px;
+}
+
+.nav .banner .kecheng-list ul li a {
+    display: block;
+    height: 44px;
+    color: #FFFFFF;
+    line-height: 44px;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+}
+
+.nav .banner .kecheng-list ul li a::after {
+    content: '>';
+    display: block;
+    float: right;
+}
+
+.nav .banner .kecheng-list ul li a:hover {
+    color: #00B4FF;
+}
+
+.my-kecheng {
+    float: right;
+    margin-top: 50px;
+    width: 228px;
+    height: 300px;
+    background-color: #fff;
+}
+
+.my-kecheng h3 {
+    box-sizing: border-box;
+    padding: 16px 66px 16px 65px;
+    font-size: 18px;
+    color: #fff;
+    background-color: rgb(155, 206, 234);
+    margin-bottom: 17px;
+}
+
+.my-kecheng p {
+    margin-left: 19px;
+    margin-right: 46px;
+    font-size: 16px;
+    height: 33px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.my-kecheng p em {
+    font-style: normal;
+    font-size: 14px;
+}
+
+.my-kecheng p::after {
+    content: '正在学习,使用对象';
+    display: block;
+    font-size: 12px;
+    color: #4E4E4E;
+}
+
+.banner .my-kecheng p:nth-child(2) {
+    padding-bottom: 18.38px;
+}
+
+.banner .my-kecheng p:nth-child(3) {
+    padding-bottom: 14.19px;
+    padding-top: 12.72px;
+}
+
+.banner .my-kecheng p:nth-child(4) {
+    padding-bottom: 15.19px;
+    padding-top: 13.91px;
+}
+
+.my-kecheng div {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #00a4ff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px 14px 11.88px 14px;
+}
+
+.my-kecheng div a {
+    color: #00a4ff;
+}
+
+.jinpin {
+    box-sizing: border-box;
+    /* padding-left: 34px; */
+    margin-top: 8px;
+    width: 1200px;
+    height: 60px;
+    line-height: 58px;
+    background: #ffffff;
+    box-shadow: 1px 1.73px 3px 2px rgba(118, 118, 118, 0.20);
+}
+
+.jinpin .left ul li {
+    float: left;
+}
+
+.jinpin .left ul li strong {
+    color: #00A4FF;
+}
+
+.jinpin .left ul li a {
+    color: #050505;
+    font-size: 16px;
+    padding-left: 34px;
+    padding-right: 34px;
+    border-right: 1px solid #bfbfbf;
+}
+
+.jinpin .left ul li:last-child a {
+    border-right: 0;
+}
+
+.jinpin .left ul li:last-child {
+    float: right;
+}
+
+.jinpin .left ul li:last-child a {
+    font-size: 14px;
+    font-family: Microsoft YaHei Bold, Microsoft YaHei Bold-Bold;
+    /* font-weight: 700 */
+    /* text-align: justifyLeft; */
+    padding-right: 26px;
+    color: #00a4ff;
+}
+
+
+/* list */
+
+.list {
+    margin-top: 37px;
+}
+
+.list .list-head {
+    font-size: 20px;
+    height: 61px;
+    /* background: red; */
+    line-height: 61px;
+}
+
+.list-body {
+    margin-bottom: 23px;
+}
+
+.list-body::after {
+    content: '';
+    display: block;
+    overflow: hidden;
+    clear: both;
+}
+
+.list .list-head .list-head-left {
+    float: left;
+}
+
+.list .list-head .list-head-left a {
+    color: #494949;
+}
+
+.list .list-head .list-head-right {
+    float: right;
+    font-size: 12px;
+    margin-right: 31px;
+}
+
+.list .list-head .list-head-right a {
+    color: #a5a5a5;
+}
+
+.list .list-body ul li {
+    position: relative;
+    float: left;
+    width: 228px;
+    height: 270px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background: #fff url(./images/course01.png) no-repeat;
+    /* background-color: red; */
+}
+
+.list .list-body ul li::before {
+    content: '';
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    left: 192px;
+    background: url(./images/hot.png) no-repeat;
+    border: 1px solid #ff592d;
+}
+
+.list .list-body ul li p:first-child {
+    font-size: 14px;
+    color: #050505;
+    margin: 180px 20px 20px 24px;
+}
+
+.list .list-body ul li p:last-child {
+    font-size: 12px;
+    color: #999;
+    margin-left: 22px;
+}
+
+.list .list-body ul li p:last-child em {
+    color: #ff7c2d;
+}
+
+.list .list-body ul li:nth-child(2) {
+    background: #fff url(./images/course02.png) no-repeat;
+}
+
+
+/* 
+.list .list-body ul li:nth-child(2)::before {
+    content: '';
+    background: url;
+} */
+
+.list .list-body ul li:nth-child(3) {
+    background: #fff url(./images/course03.png) no-repeat;
+}
+
+.list .list-body ul li:nth-child(5n) {
+    margin-right: 0;
+}
+
+.nav-biancheng .nav-biancheng-head {
+    height: 41px;
+    /* background-color: red; */
+}
+
+.nav-biancheng .nav-biancheng-head-left {
+    float: left;
+    font-size: 20px;
+    color: #494949;
+}
+
+.nav-biancheng-head-center {
+    float: left;
+    font-size: 16px;
+    margin-left: 352px;
+}
+
+.nav-biancheng-head-center ul li {
+    float: left;
+    margin-right: 60px;
+}
+
+.nav-biancheng .nav-biancheng-head .nav-biancheng-head-center ul li:last-child {
+    margin-right: 0;
+}
+
+.nav-biancheng-head-center ul li a {
+    color: #868686;
+}
+
+.nav-biancheng-head-center ul li .blue {
+    color: #00B4FF;
+}
+
+.nav-biancheng .nav-biancheng-head-right {
+    font-size: 12px;
+    float: right;
+    margin-right: 31px;
+    margin-left: 352px;
+}
+
+.nav-biancheng .nav-biancheng-head-right a {
+    color: #a5a5a5;
+}
+
+.nav-biancheng .nav-biancheng-body .left {
+    float: left;
+    width: 228px;
+    height: 392px;
+    background: url(./images/left.jpg) no-repeat;
+}
+
+.nav-biancheng .nav-biancheng-body .center {
+    width: 957px;
+    float: left;
+    margin-left: 15px;
+    height: 100px;
+    background: url(./images/top.jpg);
+}
+
+.nav-biancheng .nav-biancheng-body .bottom {
+    float: left;
+}
+
+.nav-biancheng .nav-biancheng-body .bottom ul li {
+    margin-top: 22px;
+    margin-left: 14px;
+    float: left;
+    width: 228px;
+    height: 270px;
+    background: url(./images/bottom01.jpg) no-repeat;
+}
+
+.nav-biancheng .nav-biancheng-body .bottom ul li:nth-child(2) {
+    width: 228px;
+    height: 270px;
+    background: url(./images/bottom02.jpg) no-repeat;
+}
+
+.nav-biancheng .nav-biancheng-body .bottom ul li:nth-child(3) {
+    width: 228px;
+    height: 270px;
+    background: url(./images/bottom03.jpg) no-repeat;
+}
+
+.nav-biancheng .nav-biancheng-body .bottom ul li:nth-child(4) {
+    width: 228px;
+    height: 270px;
+    background: url(./images/bottom04.jpg) no-repeat;
+}
+
+.nav-biancheng::before,
+.nav-biancheng::after {
+    content: '';
+    display: block;
+    overflow: hidden;
+    clear: both;
+}
+
+
+/* 
+.aside {
+    float: left;
+    width: 183px;
+    height: 425px;
+    top: -911px;
+    left: 151px;
+    background-color: red;
+} */
+
+.foot {
+    height: 417px;
+    background: #ffffff;
+    margin-top: 40.34px;
+}
+
+.foot .foot-left {
+    float: left;
+    margin-left: 380px;
+    margin-top: 32.6px;
+}
+
+.foot .foot-left .foot-logo {
+    width: 195px;
+    height: 42px;
+    background: url(./images/logo.png) no-repeat;
+}
+
+.foot .foot-left p {
+    font-size: 12px;
+    color: #666666;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.foot .foot-left a {
+    display: block;
+    box-sizing: border-box;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    color: #00A4FF;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #00a4ff;
+}
+
+.foot .foot-right {
+    float: left;
+}
+
+.foot .foot-right dl dt {}
+
+.foot .foot-right dl dt {
+    font-size: 16px;
+    color: #333;
+}
+
+.foot .foot-right dl dd {
+    height: 21px;
+}
+
+.foot .foot-right dl dd a {
+    font-size: 12px;
+    color: #333;
+}
+
+.foot .foot-right ul li a {
+    font-size: 12px;
+    color: #333;
+}
+
+.foot .foot-right dl {
+    float: left;
+    margin-right: 146px;
+    margin-top: 34px;
+}
+
+.foot .foot-right dl:first-child {
+    margin-left: 149px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            position: relative;
+            width: 1000px;
+            height: 800px;
+            margin: 200px auto;
+            background-color: red;
+        }
+        
+        p {
+            display: none;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <p>点击返回</p>
+    <script>
+        $(function() {
+            $(window).scroll(function() {
+                if ($(document).scrollTop() >= $('div').offset().top) {
+                    $('p').fadeIn()
+                } else {
+                    $('p').fadeOut()
+                }
+            })
+            $('p').click(function() {
+                // $('body,html').scrollTop({
+                //     top: 0
+                // })
+                $('body,html').stop().animate({
+                    scrollTop: 0
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

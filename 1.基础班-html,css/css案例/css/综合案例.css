@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-indent: 2em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.blue {
+    color: aqua;
+    font-weight: bolder;
+}
+
+.xinxi {
+    text-align: center;
+    color: rgba(210, 221, 221, 0.511);
+}

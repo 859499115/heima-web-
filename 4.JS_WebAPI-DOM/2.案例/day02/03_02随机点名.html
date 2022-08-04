@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h3 {
+            text-align: center;
+        }
+        
+        .box {
+            box-sizing: border-box;
+            width: 400px;
+            height: 200px;
+            margin: 0 auto;
+            padding-left: 50px;
+        }
+        
+        .box .name span:last-child {
+            display: inline-block;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid black;
+            vertical-align: middle;
+        }
+        
+        .btn {
+            margin-top: 2px;
+            padding-left: 100px;
+        }
+        
+        .btn button:last-child {
+            margin-left: 50px;
+        }
+        
+        button {
+            padding: 5px;
+            border-radius: 5px;
+            border: 0;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>随机点名</h3>
+    <div class="box">
+        <div class="name">
+            <span>姓名是:</span>
+            <span></span>
+        </div>
+        <div class="btn">
+            <button>开始</button>
+            <button>结束</button>
+        </div>
+    </div>
+    <script>
+        //获取元素
+        let btnStart = document.querySelector('.btn button:first-child')
+        let btnEnd = document.querySelector('.btn button:last-child')
+        let name = document.querySelector('.box .name span:last-child')
+        let arr = ['黄忠', '马超', '赵云', '关羽', '张飞']
+            //抽取随机数函数
+        function getNum(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        let start = 0
+        let random = 0
+            //当点击开始按钮,随机点名
+        btnStart.addEventListener('click', function() {
+                //重新赋值start
+                start = setInterval(function() {
+                    random = getNum(0, arr.length - 1) //重新赋值random
+                    name.innerHTML = arr[random] //修改元素内容
+                }, 10)
+                if (arr.length === 1) {
+                    btnEnd.disabled = true //禁用按钮
+                    btnStart.disabled = true
+                }
+            })
+            //当点击结束按钮,结束定时器,暂停点名
+        btnEnd.addEventListener('click', function() {
+            clearInterval(start) //关闭定时器
+            arr.splice(random, 1) //删除所选数
+
+        })
+    </script>
+</body>
+
+</html>

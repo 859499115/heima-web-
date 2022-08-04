@@ -1,0 +1,11 @@
+#1.语义化标签
+##1.无语义化标签div和span
+1.div
+独占一行
+2.span
+多个并行显示
+##2.语义化标签
+header,nav,footer,aside,section,article--主用于移动端
+#2.字符实体
+1.空格--&nbsp
+2.元--&yen

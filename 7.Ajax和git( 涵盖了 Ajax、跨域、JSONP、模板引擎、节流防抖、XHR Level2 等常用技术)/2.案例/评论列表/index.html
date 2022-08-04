@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                <form action="" method="POST" role="form">
+                    <div class="form-group">
+                        <label for="">评论人:</label>
+                        <input type="text" name="username" class="form-control" id="iptName" placeholder="请输入昵称">
+                    </div>
+                    <div class="form-group">
+                        <label for="">评论内容:</label>
+                        <textarea placeholder="最多输入120字" name="content" id="iptText" class="form-control"></textarea>
+                        <!-- <input type="text" class="form-control" placeholder="请输入内容"> -->
+                    </div>
+                    <button type="submit" class="btn btn-primary">发表评论</button>
+                </form>
+            </div>
+
+        </div>
+
+        <ul class="list-group">
+
+        </ul>
+    </div>
+
+    <script>
+        // let data = new Date()
+        // console.log(data);
+        $(function() {
+            //获取表单元素内容
+            // $('.btn').on('click', function(e) {
+            //     let iptName = $('#iptName').val()
+            //     let iptText = $('#iptText').val()
+            //     let date = new Date()
+            //     e.preventDefault()
+            //     let li = $('<li class="list-group-item"></li>')
+            //     li.html('<span class="badge"style="background-color: rgb(240, 171, 74)">评论时间:' + date.toLocaleDateString() + '</span><span class="badge"style="background-color: #5bc0de;">评论人:' + iptName + '</span> ' + iptText + '')
+            //     $('.list-group').prepend(li)
+            // })
+            getContent()
+            $('.btn').on('click', function(e) {
+                e.preventDefault()
+                    // let iptName = $('#iptName').val().trim()
+                    // let iptText = $('#iptText').val().trim()
+                    // let date = new Date()
+                    //一次性获取表单所有数据,一定要添加name属性
+                let data = $('form').serialize()
+                    // let tr = $('<li class="list-group-item"><span class="badge"style="background-color: rgb(240, 171, 74)">评论时间:' + date.toLocaleDateString() + '</span><span class="badge"style="background-color: #5bc0de;">评论人:' + iptName + '</span> ' + iptText + '</li>')
+                    //数据data请求发送到服务器
+                $.post('http://www.liulongbin.top:3006/api/addcmt', data, function(res) {
+                    if (res.status !== 201) return alert('评论失败')
+                    getContent()
+                })
+            })
+
+            function getContent() {
+                $.get('http://www.liulongbin.top:3006/api/cmtlist', function(res) {
+                    // console.log(res.data[0].time);
+                    if (res.status !== 200) return alert('添加评论失败')
+
+                    let trArr = []
+                    $.each(res.data, function(index, ele) {
+                        trArr.push('<li class="list-group-item"><span class="badge"style="background-color: rgb(240, 171, 74)">评论时间:' + ele.time + '</span><span class="badge"style="background-color: #5bc0de;">评论人:' + ele.username + '</span> ' + ele.content + '</li>')
+                    })
+                    $('.list-group').empty().prepend(trArr.join(''))
+                })
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

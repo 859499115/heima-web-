@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="../axios.js"></script>
+</head>
+
+<body>
+
+    <form action="" class="form-inline" role="form">
+        <input type="email" class="form-control" id="" placeholder="Input field">
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+
+    <script>
+        //注意区别于jQuery封装的ajax
+        //引入axios.js文件,才能用axios语法
+        let btn = document.querySelector('.btn')
+        btn.addEventListener('click', function(e) {
+            e.preventDefault()
+            axios.post('http://www.liulongbin.top:3006/api/post', {
+                address: '张家港',
+                location: '香水'
+            }).then(function(res) {
+                console.log(res);
+            })
+        })
+    </script>
+</body>
+
+</html>

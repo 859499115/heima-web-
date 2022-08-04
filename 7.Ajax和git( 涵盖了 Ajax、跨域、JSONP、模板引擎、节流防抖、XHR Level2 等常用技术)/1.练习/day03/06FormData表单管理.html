@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="forml">
+        <input type="text" name="name" id="">
+        <input type="password" name="password" id="">
+        <button type="submit">提交</button>
+    </form>
+    <script>
+        let btn = document.querySelector('button')
+        let form = document.querySelector('#forml')
+        form.addEventListener('submit', function(e) {
+            e.preventDefault()
+            let fd = new FormData(form)
+            console.log(FormData);
+            let xhr = new XMLHttpRequest()
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/formdata')
+            xhr.send(fd)
+            console.log(fd);
+            xhr.onreadystatechange = function() {
+                console.log(JSON.parse(xhr.responseText));
+            }
+            form.reset()
+        })
+    </script>
+</body>
+
+</html>

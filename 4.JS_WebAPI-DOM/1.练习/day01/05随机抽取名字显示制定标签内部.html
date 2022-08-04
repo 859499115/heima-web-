@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            line-height: 40px;
+        }
+        
+        span {
+            display: inline-block;
+            height: 40px;
+        }
+        
+        p span:last-child {
+            box-sizing: border-box;
+            width: 100px;
+            line-height: 40px;
+            border: 1px solid black;
+            text-align: center;
+            vertical-align: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <span>抽中的选手是:</span>
+        <span>111</span>
+    </p>
+    <script>
+        //声明数组
+        let name = ['张飞', '关羽', '赵云', '刘备', '黄忠', '马超']
+            //遍历内容
+            // for (let i = 0; i < name.length; i++) {
+            //     let lastSpan = document.querySelector('p span:last-child')
+            //     lastSpan.innerHTML = name[i]
+            // }
+            //随机抽取函数
+        function getName(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        //调用函数
+        let uname = getName(0, name.length - 1)
+            //获取元素/标签
+        let lastSpan = document.querySelector('p span:last-child')
+            //设置获取元素的内容
+        lastSpan.innerHTML = name[uname]
+        name.splice([uname], 1) //删除抽到数组内容
+        console.log(name);
+    </script>
+</body>
+
+</html>

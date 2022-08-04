@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        p {
+            width: 150px;
+            height: 150px;
+            background-color: gray;
+            margin: 0 auto;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet dolor earum et voluptas, officia repellat, necessitatibus cum, sequi quidem corrupti velit perspiciatis ipsam eum? Ipsa dolore in reprehenderit fuga dolorum?</p>
+    <script>
+        let p = document.querySelector('p')
+        p.addEventListener('scroll', function() {
+            //scrollWidth获取元素内容的宽度,scrollHeight获取元素内容的高度
+            //不包含滚动条的宽度
+            console.log(p.scrollWidth, p.scrollHeight);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+音频标签
+audio
+视频标签video
+ 1.controls
+ 2.loop
+列表属性
+ 1.有序列表(ol)
+ 2.无序列表(ul)
+ 3.自定义列表(dl)
+文本属性
+ 1.font
+ 2.width,height
+ 3.size
+ 4.style
+ 5.color
+ 6.border
+背景属性
+ 1.color
+ 2.image
+ 3.position
+ 4.size
+ 5.attachment
+表格属性
+ 1.thead,tbody,tfoot
+ 2.tr,td,th
+ 3.border
+ 5.rowspan,colspan
+ 6
+
+表单属性
+ 1.text
+ 2.radio
+ 3.password
+ 4.checkbox
+ 5.select>option
+ 6.textarea
+ 7.submit
+ 8.reset
+ 9.button
+ 0.label(for)
+
+浮动
+定位
+ 1.相对定位
+ 2.绝对定位
+ 3.固定定位
+装饰
+ 1.盒子阴影
+ 2.元素隐藏
+ 3.vaticial
+ 4.光标效果
+   (1)text
+   (2)cover
+精灵图
+字体图标
+SEO优化lod..

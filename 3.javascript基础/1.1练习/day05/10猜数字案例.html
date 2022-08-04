@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //随机生成1-10数字
+
+        function getNum(min, max) {
+            // if (num > num0) {
+            //     alert('你猜的小了,继续猜')
+            //     min = num0
+            // } else if (num < num0) {
+            //     alert('你猜的大了,继续猜')
+            //     max = num0
+            // } else {
+            //     alert('你猜对了')
+            // }
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        let num = getNum(1, 10)
+        while (true) {
+            let num0 = +prompt('请猜数字:')
+            if (num0 > num) {
+                alert('你猜的大了')
+            } else if (num0 < num) {
+                alert('你猜的小了')
+            } else {
+                alert('你猜对了')
+                break //退出循环,return退出函数
+            }
+        }
+        console.log(num);
+    </script>
+</body>
+
+</html>

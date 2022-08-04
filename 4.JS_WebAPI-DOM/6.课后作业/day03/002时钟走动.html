@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟走动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .contain {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        
+        .contain .hands {
+            position: absolute;
+            top: 0;
+            left: 284px;
+        }
+        
+        .hands img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <img src="./uploads/clock.jpg" alt="">
+        <div class="hands">
+            <img src="./uploads/hour.png" alt="" class="hour">
+            <img src="./uploads/minute.png" alt="" class="minute">
+            <img src="./uploads/second.png" alt="" class="second">
+        </div>
+    </div>
+    <script>
+        // 获取元素
+        let hands = document.querySelector('.hands')
+            // console.log(hands.children[0]);
+            // 设置定时器setInterval
+        function clock() {
+            let date = new Date()
+                // console.log(date);
+            let h = date.getHours()
+            console.log(h);
+            let m = date.getMinutes()
+            console.log(m);
+            let s = date.getSeconds()
+            hands.children[2].style.transform = `rotate(${6*s}deg)`
+            hands.children[1].style.transform = `rotate(${m * 6 + s/ 60 * 6}deg)`
+            hands.children[0].style.transform = `rotate(${h * 30 + m / 60 * 30}deg)`
+        }
+        clock()
+        setInterval(clock, 1000)
+    </script>
+</body>
+
+</html>

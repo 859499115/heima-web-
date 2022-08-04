@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let star = [{
+            name: '刘德华',
+            age: 49
+        }, {
+            name: '张柏芝',
+            age: 18
+        }]
+        console.log(star);
+        class Star {
+            constructor(uname, age) {
+                this.name = uname
+                this.age = age
+            }
+            sing(song) {
+                console.log(this.name + song)
+            }
+        }
+        let ldh = new Star('刘德华', 48)
+        let zbz = new Star('张柏芝', 18)
+        console.log(ldh);
+        console.log(zbz);
+        ldh.sing('冰雨')
+    </script>
+</body>
+
+</html>

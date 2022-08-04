@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            position: relative;
+            list-style: none;
+            width: 1366px;
+            height: 600px;
+        }
+        
+        .box {
+            width: 1366px;
+            height: 600px;
+            margin: 0 auto;
+            background: url(../2.images/bg.jpg) no-repeat;
+            overflow: hidden;
+        }
+        
+        li {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            transition: all .8s;
+            /* 依靠背景图片对齐方式选取背景左边 */
+            background: url(../2.images/fm.jpg) no-repeat left;
+        }
+        
+        .box:hover li:last-child {
+            transform: translateX(100%);
+        }
+        
+        li:last-child {
+            left: 50%;
+            background-position: right;
+        }
+        
+        .box:hover li:first-child {
+            /* 水平位移translate移动%参照物是自己本身 */
+            transform: translateX(-100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>

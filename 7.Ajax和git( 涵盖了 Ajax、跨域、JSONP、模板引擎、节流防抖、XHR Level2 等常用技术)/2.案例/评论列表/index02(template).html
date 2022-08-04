@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/template-web.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                <form action="" id="form">
+                    <h3>评论人:</h3>
+                    <input type="text" name="username" class="form-control" value="" placeholder="请输入昵称">
+                    <h3>评论内容:</h3>
+                    <textarea name="content" id="" class="form-control" placeholder="请输入内容"></textarea>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">发表评论</button>
+                </form>
+            </div>
+        </div>
+
+        <ul class="list-group">
+            <!-- <li class="list-group-item">
+                <span class="badge" style="background-color: yellowgreen;">10</span>
+                <span class="badge" style="background-color: #5bc0de">4</span> Item 1
+            </li> -->
+        </ul>
+    </div>
+    <script type="text/html" id="pinlun">
+        <!-- 模板引擎template -->
+        <!-- 结构清晰,便于修改 -->
+        <!-- 遍历数组 -->
+        {{each arr}}
+        <li class="list-group-item">
+            <span class="badge" style="background-color: yellowgreen;">{{$value.time}}</span>
+            <span class="badge" style="background-color: #5bc0de">{{$value.username}}</span> {{$value.content}}
+        </li>
+        {{/each}}
+    </script>
+    <script>
+        //利用模板引擎art-template渲染页面
+        $(function() {
+            getListCotent()
+                //获取数据
+            function getListCotent() {
+                $.get('http://www.liulongbin.top:3006/api/cmtlist', function(res) {
+                    console.log(res);
+                    if (res.status !== 200) return alert('获取评论失败')
+                    let data1 = {
+                        arr: res.data
+                    }
+                    console.log(data1.arr);
+                    let htmlStr = template('pinlun', data1)
+                    console.log(htmlStr);
+                    $('ul').html(htmlStr)
+                })
+            }
+            //点击注册添加评论
+            $('#form').on('submit', function(e) {
+                e.preventDefault()
+                    //获取表单域属性值
+                let data = $(this).serialize()
+                console.log(data);
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/addcmt',
+                    data: data,
+                    success: function(res) {
+                        if (res.status !== 201) return alert('添加评论失败')
+                        console.log(res);
+                        getListCotent()
+                            //jQuery对象转化为DOM对象重置
+                        $('#form').get(0).reset()
+                    }
+                })
+            })
+
+        })
+    </script>
+
+
+</body>
+
+</html>

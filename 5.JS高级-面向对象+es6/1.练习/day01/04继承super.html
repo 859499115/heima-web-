@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建类
+        class Father {
+            constructor(name, age) {
+                //this指向类
+                this.name = name
+                this.age = age
+            }
+            sing() {
+                return '唱歌'
+            }
+
+        }
+        //类实例化
+        let father = new Father('张鹏举', 25)
+        console.log(father.name + father.sing());
+        let date = new Date()
+        console.log(date);
+        let year = date.getFullYear()
+        console.log(year);
+        class Brother {
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+                    // this.sing = function() {
+                    //     console.log('阅读');
+            }
+
+            sing() {
+                console.log('阅读')
+            }
+        }
+        class Son extends Brother {
+            constructor() {
+                super(name)
+            }
+        }
+        let didi1 = new Brother('张鹏伟', 2010)
+        let me = new Brother('张鹏举', 1996)
+        let son = new Son()
+        me.sing()
+        console.log(`
+        ${didi1.name}今年${year-didi1.age}了
+        `);
+        console.log(`
+        ${me.name}今年${year-me.age}了
+        `);
+        console.log(son.name);
+    </script>
+</body>
+
+</html>

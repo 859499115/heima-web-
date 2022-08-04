@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .contain {
+            display: flex;
+            justify-content: space-between;
+            width: 180px;
+            margin: 200px auto;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .contain input {
+            flex: 1;
+            outline: 0;
+            border: 0;
+        }
+        
+        .contain label {
+            width: 20px;
+            background: url(./images/close.png) center;
+            background-size: contain;
+        }
+        
+        .contain label.active {
+            background-image: url(./images/open.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <input type="text" placeholder="请输入密码">
+        <label for=""></label>
+    </div>
+    <script>
+        let input = document.querySelector('input')
+        let label = document.querySelector('label')
+        let flag = true
+        label.addEventListener('click', function() {
+            //切换属性classList.toggle
+            //当点击label切换类名,保留以前要保留的属性,只切换要切换的
+            this.classList.toggle('active')
+            if (flag) {
+                input.type = 'password'
+                flag = false
+            } else {
+                input.type = 'text'
+                flag = true
+            }
+            // flag = !flag优化代码
+        })
+    </script>
+</body>
+
+</html>

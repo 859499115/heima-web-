@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let data = {
+            name: 'zpj',
+            age: 18,
+            address: '北京'
+        }
+
+        function getData(data) {
+            let arr = []
+                //遍历对象属性和属性值
+            for (let k in data) {
+                arr.push(k + '=' + data[k])
+            }
+            console.log(arr.join('&')); //每个数据中间以&隔开
+            //输出:name=zpj&age=18&address=北京
+            console.log(typeof arr.join('&')); //string类型
+        }
+        getData(data)
+    </script>
+    <script>
+        // let xhr = new XMLHttpRequest(data)
+        // console.log(xhr.responseText);
+    </script>
+    <script>
+        //创建xhr实例化对象
+        let xhr = new XMLHttpRequest()
+            //xhr获取数据
+            //请求具体数据,url地址后跟  (?属性)
+        xhr.open('get', 'http://www.liulongbin.top:3006/api/getbooks?id=1')
+            //xhr函数调用,发起请求
+        xhr.send()
+            //监听事件
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== 4 && xhr.status !== 200) return alert('获取失败')
+            console.log(xhr);
+            console.log(xhr.response); //JSON字符串形式
+            console.log(xhr.responseText);
+            console.log(JSON.parse(xhr.response));
+            console.log(JSON.parse(xhr.responseText));
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3900px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="totop">
+        <button>x</button>
+        <span>关闭</span>
+    </div>
+    <script>
+        let totop = document.getElementById('totop');
+        console.log(totop);
+        window.onscroll = function() {
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scrollTop);
+            if (scrollTop < 100) {
+                totop.style.opacity = 0
+            } else {
+                // totop.display = 'block'
+                // totop.style.opacity = 1
+                totop.style.opacity = 1
+            }
+        }
+    </script>
+</body>
+
+</html>

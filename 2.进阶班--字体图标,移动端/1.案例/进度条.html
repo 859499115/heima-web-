@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 200px;
+            height: 50px;
+            /* background-color: red; */
+            margin: 0 auto;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+        
+        .content {
+            height: 50px;
+            width: 50px;
+            background-color: green;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+        }
+        
+        .box:hover .content {
+            animation: scale 1s linear forwards;
+        }
+        /* linear匀速播放 */
+        /* infinite 无限循环动画 */
+        /* forwards--动画结束时状态停留在结束时 */
+        
+        @keyframes scale {
+            to {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="content"></div>
+    </div>
+</body>
+
+</html>

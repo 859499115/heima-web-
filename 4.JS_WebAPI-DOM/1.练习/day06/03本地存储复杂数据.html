@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let data = {
+                name: '张三',
+                age: 18,
+                address: '北京市朝阳区',
+            }
+            //存储数据-本地存储
+            // localStorage.setItem('data', JSON.stringify(data))
+        localStorage.setItem('data', JSON.stringify(data))
+        console.log(localStorage.getItem('data'));
+        //获取数据-本地存储
+        //先取出数据,再转换成对象
+        let data1 = JSON.parse(localStorage.getItem('data')) //JSON.parse()将字符串转换成对象
+        console.log(data1);
+    </script>
+</body>
+
+</html>

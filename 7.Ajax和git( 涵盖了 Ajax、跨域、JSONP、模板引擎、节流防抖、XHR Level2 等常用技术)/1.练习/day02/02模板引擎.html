@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <script src="../template-web.js"></script>
+</head>
+
+<body>
+    <script type="text/html" id="ul">
+        <ul>
+            <li>{{name}}</li>
+            <li>{{age}}</li>
+            <li>{{address}}</li>
+            <!-- 有标签时,为使标签效果渲染到页面属性前加@ -->
+            <li>{{@ education}}</li>
+        </ul>
+    </script>
+    <script>
+        let data = {
+            name: 'zpj',
+            age: 18,
+            address: '北京',
+            education: '<i>大学本科<i>'
+        }
+        let htmlStr = template('ul', data)
+        console.log(htmlStr);
+        $('body').html(htmlStr)
+    </script>
+</body>
+
+</html>

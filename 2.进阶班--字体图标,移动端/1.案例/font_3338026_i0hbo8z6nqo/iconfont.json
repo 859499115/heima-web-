@@ -1,0 +1,121 @@
+{
+  "id": "3338026",
+  "name": "网页字体图标",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "28897499",
+      "name": "add new bank",
+      "font_class": "a-addnewbank",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "28897500",
+      "name": "arrow down",
+      "font_class": "arrow",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "28897501",
+      "name": "back",
+      "font_class": "back",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "28897502",
+      "name": "arrow right",
+      "font_class": "a-arrowright",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "28897503",
+      "name": "keyboard submit",
+      "font_class": "a-keyboardsubmit",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "28897504",
+      "name": "download",
+      "font_class": "download",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "28905664",
+      "name": "下",
+      "font_class": "you-copy-copy",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "28905672",
+      "name": "上",
+      "font_class": "you-copy-copy-copy",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "28900668",
+      "name": "饼图",
+      "font_class": "bingtu",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "28905637",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "28907851",
+      "name": "三角形_下",
+      "font_class": "sanjiaoxing_shang",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "28907946",
+      "name": "三角形_上",
+      "font_class": "sanjiaoxing_shang-copy",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "28908592",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "28911744",
+      "name": "项目",
+      "font_class": "xiangmu",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "11880544",
+      "name": "左",
+      "font_class": "you",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "11880766",
+      "name": "右",
+      "font_class": "you-copy",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: aqua;
+        }
+        
+        .exchange {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>第1个</button><button>第2个</button><button>第3个</button><button>第4个</button><button>第5个</button>
+    <script>
+        let btns = document.querySelectorAll('button') //获得btns伪数组
+        console.log(btns);
+        for (let i = 0; i < btns.length; i++) {
+            //任意一个button点击触发事件
+            btns[i].addEventListener('click', function() {
+                // this.className = 'exchange'
+                for (let j = 0; j < btns.length; j++) {
+                    btns[j].classList.remove('exchange')
+                }
+                this.classList.add('exchange')
+            })
+        }
+    </script>
+</body>
+
+</html>

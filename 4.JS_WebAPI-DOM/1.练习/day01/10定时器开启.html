@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // setInterval(函数,延迟时间)
+        // for (let i = 1; i < 1000; i++) {
+        //     setInterval(function() {
+        //         console.log(`间隔${i}`);
+        //     }, 1000)
+        // }
+        function show() {
+            console.log('时间间隔');
+        }
+        let timmer = setInterval(show, 1000)
+        clearInterval(timmer)
+    </script>
+</body>
+
+</html>

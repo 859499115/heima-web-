@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        table {
+            border-spacing: 0;
+            border-collapse: separate;
+            margin: 0 auto;
+        }
+        
+        table,
+        td {
+            border: .0625rem solid gray;
+        }
+        
+        input {
+            vertical-align: middle;
+        }
+        
+        th {
+            background-color: rgb(53, 85, 228);
+            color: #fff;
+        }
+        
+        th,
+        td {
+            padding: .1875rem .625rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>商品</caption>
+        <thead>
+            <tr>
+                <th><input type="checkbox" class="allChoose"><span>全选</span></th>
+                <th>商品</th>
+                <th>商家</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="select"></td>
+                <td>小米手机</td>
+                <td>小米</td>
+                <td>¥1999</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="select"></td>
+                <td>小米手机</td>
+                <td>小米</td>
+                <td>¥1999</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="select"></td>
+                <td>小米手机</td>
+                <td>小米</td>
+                <td>¥1999</td>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        // 获取元素
+        let allChoose = document.querySelector('.allChoose')
+        let select = document.querySelectorAll('.select') //获得的是select伪数组;
+        let th = document.querySelector('table tr:first-child th:first-child span')
+            //注册事件
+            //1.全选按钮
+        allChoose.addEventListener('click', function() {
+                // console.log(allChoose.checked); //打印两结果,true/false
+                //遍历select数组内容
+                for (let i = 0; i < select.length; i++) {
+                    // console.log(select[i]);
+                    if (allChoose.checked === true) {
+                        select[i].checked = true
+                        th.innerHTML = '取消'
+                    } else {
+                        select[i].checked = false
+                        th.innerHTML = '全选'
+                    }
+                }
+            })
+            //2.遍历每个复选框
+        for (let i = 0; i < select.length; i++) {
+            select[i].addEventListener('click', function() {
+                //检测每个复选框,只要一个没选中false,则allChoose为false
+                for (let j = 0; j < select.length; j++) {
+                    if (select[j].checked === false) {
+                        allChoose.checked = false
+                        th.innerHTML = '全选'
+                        return
+                    }
+                }
+                allChoose.checked = true //遍历每个复选框,都选中
+                th.innerHTML = '取消'
+            })
+        }
+    </script>
+</body>
+
+</html>

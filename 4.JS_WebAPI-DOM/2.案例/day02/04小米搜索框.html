@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            opacity: 0;
+            list-style: none;
+            border: 1px solid rgb(227, 111, 111);
+        }
+        
+        ul {
+            border-top: 0;
+        }
+        
+        ul li {
+            padding-left: 10px;
+        }
+        
+        .bianhua {
+            opacity: 1;
+            border: 1px solid black;
+        }
+        
+        div {
+            width: 150px;
+            margin: 0 auto;
+        }
+        
+        input {
+            box-sizing: border-box;
+            width: 150px;
+            height: 30px;
+            padding-left: 10px;
+            margin: 0 auto;
+            color: gray;
+            outline: 0;
+            border: 1px solid rgb(227, 111, 111);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" placeholder="小米笔记本">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        //获取元素
+        let input = document.querySelector('input')
+        let ul = document.querySelector('ul')
+            //input焦点事件
+        input.addEventListener('focus', function() {
+            ul.style.display = 'block'
+            ul.classList.add('bianhua')
+        })
+        input.addEventListener('blur', function() {
+            ul.style.display = 'none'
+            ul.classList.remove('bianhua')
+
+        })
+    </script>
+</body>
+
+</html>

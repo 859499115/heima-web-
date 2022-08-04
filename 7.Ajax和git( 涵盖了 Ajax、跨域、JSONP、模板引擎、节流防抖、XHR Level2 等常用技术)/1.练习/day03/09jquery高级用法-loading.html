@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <form action="" id="form">
+        <input type="file" name="" id="">
+        <button type="submit">上传文件</button>
+    </form>
+    <img src="./loading.gif" alt="" id="png" style="display: none;">
+    <br>
+    <img src="" alt="" id="img">
+
+    <script>
+        //上传文件
+        $('#form').on('submit', function(e) {
+            //阻止默认的跳转
+            e.preventDefault()
+                //获取表单域的file
+            let fileS = $('input')[0].files
+            console.log(fileS);
+            if (fileS.length === 0) return alert('请上传文件')
+                //表单对象添加数据
+            let fd = new FormData()
+            fd.append('avatar', fileS[0])
+                //ajax开始的监听函数
+            $(document).ajaxStart(function() {
+                    $('#png').show()
+                })
+                //ajax停止的监听函数
+            $(document).ajaxStop(function() {
+                    //ajax结束后的函数体
+                    $('#png').hide()
+                })
+                //请求提交数据
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.liulongbin.top:3006/api/upload/avatar',
+                data: fd,
+                //通过ajax上传文件一定要加的
+                //这两项固定值不能少,用$.ajax上传文件的话
+                contentType: false,
+                processData: false,
+                success: function(res) {
+                    console.log(res);
+                    //注意添加img的根路径
+                    $('#img').prop('src', 'http://www.liulongbin.top:3006' + res.url)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

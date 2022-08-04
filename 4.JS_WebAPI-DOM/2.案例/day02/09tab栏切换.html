@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab栏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: rgb(104, 99, 99);
+        }
+        
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        
+        .wrapper .tabHead {
+            border: 1px solid black;
+        }
+        
+        .wrapper .tabHead ul {
+            display: flex;
+        }
+        
+        .wrapper .tabHead ul li {
+            padding: 0 10px;
+            border-right: 1px solid black;
+        }
+        
+        .wrapper .tabHead ul li:last-child {
+            border-right: 0;
+        }
+        
+        .wrapper .tabBody {
+            flex: 1;
+            position: relative;
+            width: 500px;
+        }
+        
+        .wrapper .tabBody div a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wrapper .tabBody div a img {
+            width: 100%;
+        }
+        
+        .wrapper .tabBody .main {
+            position: absolute;
+        }
+        
+        .red {
+            color: red;
+        }
+        
+        .active {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="tabHead">
+            <ul>
+                <li class="tab_item "><a href="#" class="red">国际大牌</a></li>
+                <li class="tab_item"><a href="#">国妆名牌</a></li>
+                <li class="tab_item"><a href="#">清洁用品</a></li>
+                <li class="tab_item"><a href="#">男士精品</a></li>
+            </ul>
+        </div>
+        <div class="tabBody">
+            <div class="main ">
+                <a href=""><img src="../5.images/guojidapai.jpg" alt=""></a>
+            </div>
+            <div class="main">
+                <a href=""><img src="../5.images/guozhuangmingpin.jpg" alt=""></a>
+            </div>
+            <div class="main">
+                <a href=""><img src="../5.images/nanshijingpin.jpg" alt=""></a>
+            </div>
+            <div class="main">
+                <a href=""><img src="../5.images/qingjieyongpin.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 获取元素.tab_item,.main
+        let tab_items = document.querySelectorAll('.wrapper .tabHead ul a')
+        console.log(tab_items);
+        let mains = document.querySelectorAll('.main')
+            //注册事件,当点击任意tab_item调出对应的main
+            //1.for循环遍历tab_item所有内容
+        for (let i = 0; i < tab_items.length; i++) {
+            // console.log(tab_items[i]);
+            //点击tab_item触发事件
+            tab_items[i].addEventListener('click', function() {
+                for (let j = 0; j < tab_items.length; j++) {
+                    tab_items[j].classList.remove('red')
+                    mains[j].classList.add('active')
+                }
+                tab_items[i].classList.add('red')
+                mains[i].classList.remove('active')
+            })
+        }
+    </script>
+</body>
+
+</html>

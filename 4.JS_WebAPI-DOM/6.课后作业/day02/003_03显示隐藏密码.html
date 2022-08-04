@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./download/font_3338026_v1ida9qwifc/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .contain {
+            display: flex;
+            width: 200px;
+            height: 40px;
+            margin: 100px auto;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .contain input {
+            padding-left: 10px;
+            border: none;
+            outline: 0;
+        }
+        
+        .contain label {
+            flex: 1;
+            line-height: 40px;
+            color: #ccc;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .icon-yanjing {
+            content: "\e8c7";
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <span class="iconfont icon-biyanjing"></span> -->
+    <div class="contain">
+        <input type="password" placeholder="请输入密码">
+        <label for="" class="iconfont icon-biyanjing
+        "></label>
+    </div>
+    <script>
+        // 获取元素
+        let input = document.querySelector('input')
+        let label = document.querySelector('label')
+        let flag = true
+            //点击图标更换图标iconfont
+        label.addEventListener('click', function() {
+            //点击更换图标
+            this.classList.toggle('icon-yanjing')
+            if (flag) {
+                input.type = 'text'
+                flag = false
+            } else {
+                input.type = 'password'
+                flag = true
+            }
+        })
+    </script>
+</body>
+
+</html>

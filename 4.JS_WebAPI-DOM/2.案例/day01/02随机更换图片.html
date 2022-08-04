@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        
+        body {
+            height: 100%;
+            background: url(../5.images/desktop_1.jpg) no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //获取元素
+        let bgc = document.querySelector('body')
+            //开启定时器,每隔一秒调用一次内部函数
+        setInterval(function() {
+                //随机抽取函数
+                function getNum(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1) + min)
+                }
+                let num = getNum(1, 10) //调用函数
+                bgc.style.backgroundImage = `url(../5.images/desktop_${num}.jpg)` //修改元素属性
+            }, 1000)
+            // let timer = setInterval(exchange, 1000)
+    </script>
+</body>
+
+</html>

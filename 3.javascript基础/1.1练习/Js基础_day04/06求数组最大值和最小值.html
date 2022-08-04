@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //声明函数
+        function getArrMaxAndMin(arr) {
+            //遍历数组
+            let max = arr[0]
+            let min = arr[0]
+            for (let i = 1; i < arr.length; i++) {
+                if (max < arr[i]) {
+                    max = arr[i]
+                }
+                if (min > arr[i]) {
+                    min = arr[i]
+                }
+                //注意使用三元元素符的使用与if的不同
+            }
+            return [max, min] //返回的是getArrMaxAndMin(arr)
+        }
+        //调用函数
+        let value = getArrMaxAndMin([1, 2, 3, 4, 5]) //getArrMaxAndMin([1,2,3,4,5])是return的值
+        document.write(`最大值是:${value[0]};最小值是:${value[1]}`)
+    </script>
+</body>
+
+</html>

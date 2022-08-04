@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(name, age) {
+            this.name = name
+            this.age = age
+                // this.sing = function() {
+                //     console.log('唱歌');
+                // }
+        }
+        //构造函数原型共享方法
+        Star.prototype = {
+            sing: function() {
+                console.log('我会唱歌');
+            }
+        }
+        let zpj = new Star('张鹏举', 18)
+        let ldh = new Star('刘德华', 23)
+        zpj.sing()
+        ldh.sing()
+        console.log(zpj);
+        // console.log(zpj.__proto__ === Star.prototype);
+        // console.log(zpj.__proto__.constructor.prototype.constructor.__proto__);
+        // console.log(Star.prototype);
+        // console.log(zpj.name);
+        // console.log(zpj.age);
+        // zpj.sing()
+        // Star.sex = '男'
+        // console.log(zpj);
+    </script>
+</body>
+
+</html>

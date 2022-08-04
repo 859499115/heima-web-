@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ul>
+    <script>
+        //1.获取元素
+        let li = document.querySelectorAll('ul li') //获得的是一个li伪数组,有索引号
+        for (let i = 0; i < li.length; i++) {
+            document.write(`
+            ${li[i]}
+            `)
+                // console.log(li);
+        }
+        console.log(li);
+    </script>
+</body>
+
+</html>

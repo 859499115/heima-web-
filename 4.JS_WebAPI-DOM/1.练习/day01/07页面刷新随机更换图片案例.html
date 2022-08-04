@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="/5.images/1.webp" alt="">
+    <script>
+        //获取元素
+        let img = document.querySelector('img')
+        console.log(img);
+        img.style = "width: 500px" //修改css属性值
+        function getImg(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        let num = getImg(1, 6)
+            //修改元素属性
+        console.log(num);
+
+        // img.src = "/5.images/${num}.webp"
+    </script>
+</body>
+
+</html>

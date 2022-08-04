@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .father {
+            display: flex;
+        }
+        
+        button {
+            width: 20px;
+            height: 20px;
+        }
+        
+        p {
+            background-color: antiquewhite;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <button>x</button>
+        <div class="son">
+            <p>去领红包</p>
+            <img src="../day01/5.images/code.png" alt="">
+        </div>
+    </div>
+    <script>
+        let button = document.querySelector('button')
+        button.addEventListener('click', function() {
+            button.parentNode.style.opacity = '0' //获得父元素节点
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .code {
+            display: flex;
+        }
+        
+        .code button {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="code">
+        <img src="../images/456.png" alt="">
+        <button>x</button>
+    </div>
+    <div class="code">
+        <img src="../images/456.png" alt="">
+        <button>x</button>
+    </div>
+    <div class="code">
+        <img src="../images/456.png" alt="">
+        <button>x</button>
+    </div>
+    <div class="code">
+        <img src="../images/456.png" alt="">
+        <button>x</button>
+    </div>
+    <div class="code">
+        <img src="../images/456.png" alt="">
+        <button class="close_btn"></button>
+    </div>
+    <script>
+        //获取元素button
+        let code = document.querySelectorAll('.code') //btn是伪数组
+            //注册事件,点击click关闭code
+            // console.log(code[0].children[1]);
+        for (let i = 0; i < code.length; i++) {
+            //父元素.children获得的是子元素数组
+            code[i].children[1].addEventListener('click', function() {
+                // code[i].style.opacity = '0'
+                code[i].style.opacity = '0'
+            })
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.声明数组
+        //2.封装函数
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超']
+
+        function getName(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min) //得到数组索引号空间随机抽取
+        }
+        let name = getName(0, arr.length - 1)
+        document.write(arr[name])
+        arr.splice(name, 1) //数组删除具体项
+        console.log(arr);
+        // function getName() {
+        //     return arr[Math.floor(Math.random() * (arr.length - 1 - 0 + 1) + 0)]
+        // }
+        // let name = getName()
+        // console.log(name);
+    </script>
+</body>
+
+</html>

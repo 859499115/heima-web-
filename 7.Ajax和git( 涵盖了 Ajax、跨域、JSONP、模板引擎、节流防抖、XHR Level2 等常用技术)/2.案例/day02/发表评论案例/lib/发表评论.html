@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">发表评论</h3>
+            </div>
+            <div class="panel-body">
+                <form action="" method="POST" role="form" id="form">
+                    <div class="form-group">
+                        <label for="">评论人:</label>
+                        <input type="text" name="username" class="form-control" id="username" placeholder="请输入昵称">
+                    </div>
+                    <div class="form-group">
+                        <label for="">评论内容:</label>
+                        <textarea name="content" id="content" class="form-control" placeholder="请输入内容"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">发表评论</button>
+                </form>
+            </div>
+        </div>
+        <ul class="list-group"></ul>
+    </div>
+    <script>
+        $(function() {
+            getContent()
+
+            function getContent() {
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://www.liulongbin.top:3006/api/cmtlist',
+                    success: function(res) {
+                        console.log(res);
+                        if (res.status !== 200) return alert('获取评论失败')
+                        let arr = []
+                        $.each(res.data, function(index, ele) {
+                            arr.push('<li class="list-group-item"><span class = "badge" style ="background-color:#337ab7;">' + ele.time + '</span><span class = "badge" style = "background-color:#f0ad4e;">' + ele.username + ' </span>' + ele.content + '</li>')
+                        })
+                        $('.list-group').empty().prepend(arr.join(''))
+                    }
+                })
+            }
+            //通过表单注册
+            $('#form').on('submit', function(e) {
+                e.preventDefault()
+                    //一次性获取form表单所有数据
+                    //前提是表单域都要有name属性
+                let data = $(this).serialize() //获取到name属性值,即表单域val()值
+                console.log(data);
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/addcmt',
+                    //追加评论,对应服务器的属性名
+                    data: data,
+                    success: function(res) {
+                        console.log(res);
+                        if (res.status !== 201) return alert('发表评论失败')
+                        getContent()
+                            //先将jQuery对象$('#form')转化为DOM对象,$('#form')[0]转化为DOM对象
+                            //原生js方法--清空表单内容
+                        $('#form')[0].reset()
+                            // $('#username').val('')
+                            // $('#content').val('')
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

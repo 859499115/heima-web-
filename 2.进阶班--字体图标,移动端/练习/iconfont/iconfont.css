@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3338026 */
+  src: url('iconfont.woff2?t=1650269692901') format('woff2'),
+       url('iconfont.woff?t=1650269692901') format('woff'),
+       url('iconfont.ttf?t=1650269692901') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-a-addnewbank:before {
+  content: "\e608";
+}
+
+.icon-arrow:before {
+  content: "\e609";
+}
+
+.icon-back:before {
+  content: "\e60a";
+}
+
+.icon-a-arrowright:before {
+  content: "\e60b";
+}
+
+.icon-a-keyboardsubmit:before {
+  content: "\e60c";
+}
+
+.icon-download:before {
+  content: "\e60d";
+}
+
+.icon-you-copy-copy:before {
+  content: "\e651";
+}
+
+.icon-you-copy-copy-copy:before {
+  content: "\e652";
+}
+
+.icon-bingtu:before {
+  content: "\e64e";
+}
+
+.icon-guanbi:before {
+  content: "\e650";
+}
+
+.icon-sanjiaoxing_shang:before {
+  content: "\e654";
+}
+
+.icon-sanjiaoxing_shang-copy:before {
+  content: "\e655";
+}
+
+.icon-caidan:before {
+  content: "\e658";
+}
+
+.icon-xiangmu:before {
+  content: "\e65b";
+}
+
+.icon-you:before {
+  content: "\e636";
+}
+
+.icon-you-copy:before {
+  content: "\e637";
+}
+

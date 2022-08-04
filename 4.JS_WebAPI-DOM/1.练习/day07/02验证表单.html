@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        span {
+            vertical-align: middle;
+        }
+        
+        .error {
+            color: red;
+        }
+        
+        .right {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text">
+    <span></span>
+    <script>
+        let input = document.querySelector('input');
+        let span = document.querySelector('span');
+        let reg = /^[a-zA-Z0-9-_]{6,16}$/ //[a-zA-Z0-9_]表示匹配的是字母或数字或下划线或减号.{6,16}表示匹配的是6到16位的字符串
+        input.addEventListener('mouseleave', function() {
+            if (reg.test(input.value)) {
+                span.innerHTML = '输入正确';
+                span.className = 'right';
+            } else {
+                span.innerHTML = '输入错误';
+                span.className = 'error';
+            }
+        })
+    </script>
+</body>
+
+</html>

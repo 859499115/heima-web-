@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ["老赵", "老李", "小传", "小黑"]
+            // console.log(name[0]);
+        function getName(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        let students = getName(0, arr.length - 1) //students得到数组索引号
+        console.log(arr[students])
+        arr.splice(students, 1) //splice删除从索引号students开始删除一个
+        console.log(arr);
+    </script>
+</body>
+
+</html>

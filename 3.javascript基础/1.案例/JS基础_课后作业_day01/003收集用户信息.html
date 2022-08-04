@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-spacing: 0ch;
+            border-collapse: collapse;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            margin: 100px auto;
+            text-align: center;
+        }
+        
+        caption {
+            margin-bottom: 10px;
+        }
+        
+        thead {
+            background-color: rgb(244, 238, 238);
+        }
+        
+        th,
+        td {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 5px 10px;
+        }
+        
+        tbody tr:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let total = +prompt('请输入银行卡余额:')
+        let dianfei = +prompt('请输入电费:')
+        let shuifei = +prompt('请输入水费:')
+        let wangfei = +prompt('请输入网费:')
+        let yue = total - dianfei - shuifei - wangfei
+        document.write(`
+        <table>
+        <caption>2020年12月消费支出</caption>
+        <thead>
+            <tr>
+                <th>银行卡余额</th>
+                <th>水费</th>
+                <th>电费</th>
+                <th>网费</th>
+                <th>银行卡余额</th>
+            </tr>
+        </thead>
+        <tbody>
+        `)
+        document.write(`
+        <tr>
+        <td>${total}</td>
+        <td>${shuifei}</td>
+        <td>${dianfei}</td>
+        <td>${wangfei}</td>
+        <td>${yue}</td>
+    </tr>
+        `)
+        document.write(`
+            </tbody>
+        </table>
+        `)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 1000px;
+            height: 1200px;
+            margin: 200px auto;
+            background-color: red;
+        }
+        
+        p {
+            display: none;
+            position: fixed;
+            right: 50px;
+            bottom: 500px;
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <p>点击返回</p>
+    <script>
+        $(function() {
+            $(window).scroll(function() {
+                    //卷去部分大于div的相对页面偏移量,p显示
+                    //offset().top获得div相对页面的top值
+                    if ($(this).scrollTop() >= $('div').offset().top) {
+                        $('p').fadeIn()
+                    } else {
+                        $('p').fadeOut()
+                    }
+                })
+                //点击返回顶部
+            $('p').click(function() {
+                //自定义动画animate,修改元素属性以对象形式
+                $('body,html').stop().animate({
+                    scrollTop: 0
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 100px auto;
+        }
+        
+        td,
+        th {
+            padding: 10px 15px;
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        let price = prompt('请输入你买的数量:')
+        let num = prompt('请输入商品价格:')
+        let total = num * price
+        document.write(`
+        <table cellspacing="0" rowspacing="0" border="1">
+        <caption>
+            <h1>订单付款确认页面</h1>
+        </caption>
+        <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>商品数量</th>
+            <th>总价</th>
+            <th>收货地址</th>
+        </tr>
+        <tr>
+            <td class="name">1</td>
+            <td class="price">${price}</td>
+            <td class="num">${num}</td>
+            <td class="address">${total}</td>
+        </tr>
+    </table>
+        `)
+    </script>
+</body>
+
+</html>

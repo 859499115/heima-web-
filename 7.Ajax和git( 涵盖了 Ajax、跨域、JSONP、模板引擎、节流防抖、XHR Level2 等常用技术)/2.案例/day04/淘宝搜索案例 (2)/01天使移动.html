@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./angel.gif" alt="">
+    <script>
+        $(function() {
+            //设置节流阀
+            let timer = null
+            $(document).on('mousemove', function(e) {
+                //判断定时器是否开启
+                if (timer) {
+                    return
+                }
+                //开启定时器
+                timer = setTimeout(function() {
+                    console.log(e.pageX);
+                    $('img').css({
+                        top: e.pageY + 'px',
+                        left: e.pageX + 'px'
+                    })
+                    console.log('ok');
+                    timer = null
+                }, 16)
+            })
+        })
+    </script>
+</body>
+
+</html>

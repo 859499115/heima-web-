@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="../1.练习/jquery.min.js"></script>
+    <!-- <script src="/1.练习/jquery.min.js"></script> -->
+</head>
+
+<body>
+    <div class="container">
+
+        <table>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">添加新图书</h3>
+                </div>
+                <div class="panel-body ">
+                    <form class="form-inline">
+                        <div class="form-group form-inline">
+                            <div class="input-group">
+                                <div class="input-group-addon">书名</div>
+                                <input type="text" class="form-control" id="bookname" placeholder="请输入书名">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-addon">作者</div>
+                                <input type="text" class="form-control" id="author" placeholder="请输入作者">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-addon">出版社</div>
+                                <input type="text" class="form-control" id="publisher" placeholder="请输入出版社">
+                            </div>
+                            <button type="submit" class="btn btn-primary">添加</button>
+                        </div>
+                    </form>
+                    <div class="table-responsive text-center" style="margin-top:20px ;">
+                        <table class="table table-bordered text-center">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>id</th>
+                                    <th>书名</th>
+                                    <th>作者</th>
+                                    <th>出版社</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script>
+        $(function() {
+                getbooksList()
+                    //获取数据
+                function getbooksList() {
+                    $.get('http://www.liulongbin.top:3006/api/getbooks', function(res) {
+                        console.log(res);
+                        if (res.status !== 200) return alert('获取图书失败')
+                            //获取成功
+                            // 数据渲染到表格中
+                            //追加空数组添加数据
+                        let trArr = []
+                        $.each(res.data, function(index, ele) {
+                            //追加数组内容
+                            trArr.push(`<tr><td>${ele.id}</td><td>${ele.bookname}</td><td>${ele.author}</td><td>${ele.publisher}</td><td><a href="#" class='del' data-id="${ele.id}" >删除</a></td></tr>`)
+                        })
+                        $('tbody').empty().append(trArr.join(''))
+                    })
+                }
+                //2.删除数据
+                $('tbody').on('click', '.del', function() {
+                        let id = $(this).attr('data-id')
+                        $.get('http://www.liulongbin.top:3006/api/delbook', {
+                            id: id,
+                        }, function(res) {
+                            if (res.status !== 200) return alert('删除失败')
+                                //删除成功,重新调用数据
+                            getbooksList()
+                        })
+                    })
+                    //3.添加图书
+                $('.btn').on('click', function() {
+                    console.log($('input').val());
+                    $.post('http://www.liulongbin.top:3006/api/addbook', {
+                        bookname: $('input').eq(0).val(),
+                        author: $('input').eq(1).val(),
+                        publisher: $('input').eq(2).val(),
+                    }, function(res) {
+                        if (res.status !== 201) return alert('添加图书失败')
+                        getbooksList()
+                    })
+                })
+
+            })
+            // $(function() {
+            //     getbooksList()
+            //         //1.获取数据
+            //     function getbooksList() {
+            //         $.get('http://www.liulongbin.top:3006/api/getbooks', function(res) {
+            //             console.log(res);
+            //             //获取失败
+            //             if (res.status !== 200) return alert('获取失败')
+            //                 //获取成功
+            //             let bookArr = []
+            //             $.each(res.data, function(index, ele) {
+            //                 bookArr.push(`<tr><td>${ele.id}</td><td>${ele.bookname}</td><td>${ele.author}</td><td>${ele.publisher}</td><td><a href="#" class="del">删除</a></td></tr>`)
+            //             }) 
+            //             $('.table-bordered tbody').empty().append(bookArr)
+            //         })
+            //     }
+            //     //2.添加删除
+            //     // $('tbody').on('click', '.del', function() {
+            //     //         let id = $(this).parents('td').siblings().eq(0).html()
+            //     //         console.log($(this).parents('td').siblings().eq(0).html());
+            //     //         $.get('http://www.liulongbin.top:3006/api/delbook', {
+            //     //             id: parseInt(id),
+            //     //         }, function(res) {
+            //     //             if (res.status !== 200) return alert('删除失败')
+            //     //             getbooksList()
+            //     //         })
+            //     //     })
+            //     //3.添加图书
+            //     $('.btn').on('click', function() {
+            //         let bookname = $('#bookname').val().trim()
+            //         let author = $('#author').val().trim()
+            //         let publisher = $('#publisher').val().trim()
+            //         $.post('http://www.liulongbin.top:3006/api/addbook', {
+            //             bookname: bookname,
+            //             author: author,
+            //             publisher: publisher,
+            //         }, function(res) {
+            //             getbooksList()
+            //         })
+            //     })
+
+
+        // })
+
+        // // $(function() {
+        // //     $.get('http://www.liulongbin.top:3006/api/getbooks', function(res) {
+        // //         console.log(res.data);
+        // //         $.each(res.data, function(index, ele) {
+
+        // //                 // $('.table-bordered tbody').empty()
+        // //                 // console.log(ele.bookname);
+        // //                 // if (res.status === 200) {
+        // //                 //     let tr = $('<tr></tr>')
+        // //                 //     tr.html(`<td>${ele.id}</td><td>${ele.bookname}</td><td>${ele.author}</td><td>${ele.publisher}</td><td><a href="#" class="del">删除</a></td>`)
+        // //                 //     $('.table-bordered tbody').empty().append(tr)
+
+        // //                 // }
+        // //             })
+        // //             //动态添加的元素通过on()方法,父元素委派添加事件
+        // //         $('tbody').on('click', '.del', function() {
+        // //             $(this).parents('tr').remove()
+        // //         })
+        // //         $('.input-group #exampleInputAmount').each(function(index, ele) {
+        // //             console.log(ele);
+        // //             $('.btn').on('click', function() {
+        // //                 $.ajax({
+        // //                     type: 'POST',
+        // //                     url: 'http://www.liulongbin.top:3006/api/addbook',
+        // //                     data: {
+        // //                         id: 101,
+        // //                         bookname: ele[0].val(),
+        // //                         author: ele[1].val(),
+        // //                         publisher: ele[2].val()
+        // //                     },
+        // //                     success: function(params) {
+        // //                         data.push(res)
+        // //                     }
+        // //                 })
+        // //             })
+        // //         })
+
+        // //     })
+
+
+        // // })
+    </script>
+</body>
+
+</html>

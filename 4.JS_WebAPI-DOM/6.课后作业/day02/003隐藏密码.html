@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./download/font_3338026_v1ida9qwifc/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 200px;
+            height: 50px;
+            margin: 50px auto;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        input {
+            border: 0;
+            outline: 0;
+            padding-left: 10px;
+        }
+        
+        span {
+            display: block;
+            width: 48px;
+            height: 48px;
+            background: url(./images/close.png) no-repeat bottom;
+            background-size: contain;
+        }
+        
+        .active {
+            display: block;
+            width: 48px;
+            height: 48px;
+            background: url(./images/open.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"><input type="password"><span></span></div>
+    <script>
+        let input = document.querySelector('input')
+        let span = document.querySelectorAll('span')
+        console.log(span);
+        span.addEventerLisenter('click', function() {
+            span.classList.toggle(active)
+        })
+    </script>
+</body>
+
+</html>

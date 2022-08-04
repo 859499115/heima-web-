@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>我是一个段落标签</p>
+    <ul>
+        <li>我是1</li>
+        <li>我是2</li>
+        <li>我是3</li>
+        <li>我是4</li>
+    </ul>
+    <script>
+        // 1. 获取一个元素querySelector
+        // 多个相同元素标签, 获取的是第一个标签
+        let p = document.querySelector('p')
+        console.log(p);
+        //2.获取多个元素document.querySelectorAll('css选择器')
+        let li = document.querySelectorAll('ul li')
+        console.log(li) //输出的是节点集合,是一个数组
+        for (let i = 0; i < li.length; i++) {
+            console.log(li[i]);
+        }
+        li[0] = '你好啊'
+        li.push('你好')
+        console.log(li);
+    </script>
+</body>
+
+</html>

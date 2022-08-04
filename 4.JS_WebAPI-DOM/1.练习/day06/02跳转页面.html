@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击跳转</button>
+    <input type="text" value="5">
+    <script>
+        let btn = document.querySelector('button')
+        let input = document.querySelector('input')
+        btn.addEventListener('click', function() {
+                //点击跳转到百度页面
+                location.href = 'http://www.baidu.com'
+            })
+            //开启定时器,为0时跳转到百度页面
+        setInterval(function() {
+                input.value--
+                    if (input.value == 0) {
+                        //跳转页面
+                        location.href = 'http://www.baidu.com'
+                    }
+            }, 1000)
+            // setTimeout(function() {
+            //     //点击跳转到百度页面
+            //     location.href = 'http://www.baidu.com'
+            // }, 5000)
+    </script>
+</body>
+
+</html>

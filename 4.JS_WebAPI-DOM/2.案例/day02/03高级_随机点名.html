@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: green;
+        }
+        
+        h3 {
+            text-align: center;
+        }
+        
+        .name {
+            display: flex;
+            align-items: center;
+            width: 300px;
+            margin-left: 50px;
+            margin-bottom: 2px;
+        }
+        
+        .name input {
+            flex: 1;
+            height: 30px;
+            text-align: center;
+            outline: none;
+        }
+        
+        .btn {
+            display: flex;
+            justify-content: space-around;
+            width: 300px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>随机点名</h3>
+        <div class="name">
+            <span>姓名是:</span>
+            <input type="text">
+        </div>
+        <div class="btn">
+            <button>开始</button>
+            <button>结束</button>
+        </div>
+    </div>
+    <script>
+        let arr = ['黄忠', '马超', '赵云', '关羽', '张飞']
+            // 获取元素
+        let input = document.querySelector('input')
+        let btnStart = document.querySelector('.btn button:first-child')
+        let btnEnd = document.querySelector('.btn button:last-child')
+        let name = 0
+
+        function getNum(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        //当点击开始按钮,开始随机点名
+        btnStart.addEventListener('click', function() {
+                function exchangeName() {
+                    let random = getNum(0, arr.length - 1)
+                    input.value = arr[random]
+                }
+                name = setInterval(exchangeName, 10)
+            })
+            //当点击结束按钮,关闭定时器
+        btnEnd.addEventListener('click', function() {
+            clearInterval(name)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks')
+        xhr.send()
+            //超时设置
+            //数据请求,无法30毫秒内完成
+        xhr.timeout = 300
+        xhr.ontimeout = function() {
+                alert('请求超时了')
+            }
+            //时间范围内得到请求操作
+        xhr.onreadystatechange = function() {
+            console.log(xhr.responseText);
+        }
+    </script>
+</body>
+
+</html>

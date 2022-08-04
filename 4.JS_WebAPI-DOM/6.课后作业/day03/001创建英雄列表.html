@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建英雄列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        body {
+            text-align: center;
+            background: #000;
+        }
+        
+        .create button {
+            width: 150px;
+            height: 30px;
+            color: #fff;
+            margin: 10px 0;
+            background: #daa520;
+            border-radius: 15px;
+        }
+        
+        .create button:hover {
+            color: rgb(32, 31, 31);
+        }
+        
+        .list_items {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        .list_items ul {
+            display: flex;
+            flex-wrap: wrap;
+            width: 500px;
+        }
+        
+        .list_items ul li {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        
+        .list_items ul li img {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .list_items ul li:hover {
+            animation: scale 1s forwards;
+        }
+        /* 添加动画 */
+        
+        @keyframes scale {
+            to {
+                transform: scale(1.3);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="create">
+        <button>创建英雄列表</button>
+    </div>
+    <div class="list_items">
+        <ul></ul>
+
+    </div>
+    <script>
+        let datas = [{
+            name: '司马懿',
+            imgSrc: './uploads/heros/01.jpg'
+        }, {
+            name: '女娲',
+            imgSrc: './uploads/heros/02.jpg'
+        }, {
+            name: '百里守约',
+            imgSrc: './uploads/heros/03.jpg'
+        }, {
+            name: '亚瑟',
+            imgSrc: './uploads/heros/04.jpg'
+        }, {
+            name: '虞姬',
+            imgSrc: './uploads/heros/05.jpg'
+        }, {
+            name: '张良',
+            imgSrc: './uploads/heros/06.jpg'
+        }, {
+            name: '安其拉',
+            imgSrc: './uploads/heros/07.jpg'
+        }, {
+            name: '李白',
+            imgSrc: './uploads/heros/08.jpg'
+        }, {
+            name: '阿珂',
+            imgSrc: './uploads/heros/09.jpg'
+        }, {
+            name: '墨子',
+            imgSrc: './uploads/heros/10.jpg'
+        }, {
+            name: '鲁班',
+            imgSrc: './uploads/heros/11.jpg'
+        }, {
+            name: '嬴政',
+            imgSrc: './uploads/heros/12.jpg'
+        }, {
+            name: '孙膑',
+            imgSrc: './uploads/heros/13.jpg'
+        }, {
+            name: '周瑜',
+            imgSrc: './uploads/heros/14.jpg'
+        }, {
+            name: 'XXX',
+            imgSrc: './uploads/heros/15.jpg'
+        }, {
+            name: 'XXX',
+            imgSrc: './uploads/heros/16.jpg'
+        }, {
+            name: 'XXX',
+            imgSrc: './uploads/heros/17.jpg'
+        }, {
+            name: 'XXX',
+            imgSrc: './uploads/heros/18.jpg'
+        }, {
+            name: 'XXX',
+            imgSrc: './uploads/heros/19.jpg'
+        }, {
+            name: 'XXX',
+            imgSrc: './uploads/heros/20.jpg'
+        }];
+        // 获取父级元素ul
+        let ul = document.querySelector('.list_items ul')
+            // console.log(ul);
+        let btn = document.querySelector('button')
+            // console.log(btn);
+            //注册事件点击创建按钮 ,创建列表
+        btn.addEventListener('click', function() {
+            for (let i = 0; i < datas.length; i++) {
+                //1.创建元素li
+                let li = document.createElement('li')
+                    //修改元素内容
+                li.innerHTML = `
+              <img src=${datas[i].imgSrc} alt="" title=${datas[i].name}>
+                 `
+                    //2.追加元素li到ul中
+                ul.appendChild(li)
+            }
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.4.1-dist/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <script src="../jquery.min.js"></script>
+</head>
+
+<body>
+    <form action="" id="form">
+        <input type="file" name="file" id="">
+        <button type="submit" id="btn">上传文件</button>
+    </form>
+    <div class="progress" style="width: 500px">
+        <div class="progress-bar progress-bar-striped active" style="width: 0">
+            0 完成
+        </div>
+    </div>
+    <img src="" alt="" style="width: 800px;">
+    <script type="text/html" id="jinduT">
+
+    </script>
+    <script>
+        $('#form').on('submit', function(e) {
+            //阻止默认跳转行为
+            e.preventDefault()
+            let file = $('input')[0].files
+            let fd = new FormData()
+            console.log(file);
+            fd.append('avatar', file[0])
+            let xhr = new XMLHttpRequest()
+                //监听进度条过程
+            xhr.upload.onprogress = function(e) {
+                    if (e.lengthComputable) {
+                        let percentComputer = Math.ceil((e.loaded / e.total) * 100)
+                        console.log(percentComputer);
+                        $('.progress-bar').css({
+                                'width': percentComputer + '%'
+                            }).html(percentComputer + '%' + '完成')
+                            // let htmlStr = template('jinduT', percentComputer)
+                            // $('.container').html(htmlStr)
+                    }
+                }
+                //监听进度条完成
+            xhr.upload.onload = function() {
+                $('.progress-bar').removeClass().addClass('progress-bar progress-bar-success')
+            }
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/upload/avatar')
+                //调用函数
+            xhr.send(fd)
+            xhr.onreadystatechange = function() {
+                //得到的数据是JSON字符串形式,要转化为对象形式
+                let data = JSON.parse(xhr.responseText)
+                console.log(data);
+                //图片路径,要添加根路径
+                $('img').prop('src', 'http://www.liulongbin.top:3006' + data.url)
+            }
+        })
+    </script>
+</body>
+
+</html>

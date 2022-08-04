@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            display: flex;
+            width: 4.375rem;
+            height: 2.5rem;
+            background-color: green;
+        }
+        
+        .box input {
+            display: block;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            width: 3.125rem;
+            text-align: center;
+            background-color: red;
+            border: 0;
+            outline: 0;
+        }
+        
+        .box .btn {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" value="0">
+        <div class="btn">
+            <button>+</button>
+            <button disabled>-</button>
+        </div>
+    </div>
+    <script>
+        //获取元素
+        let span = document.querySelector('input')
+        let btn = document.querySelectorAll('button')
+            // console.log(num);
+            //注册事件:
+            //1.点击+按钮,span+1;点击-号span-1
+        btn[0].addEventListener('click', function() {
+            span.value++ //自加一,字符串类型
+                if (span.value >= 1) {
+                    btn[1].disabled = false
+                }
+        })
+        btn[1].addEventListener('click', function() {
+            span.value--
+                if (span.value <= 0) {
+                    btn[1].disabled = true
+                }
+        })
+    </script>
+</body>
+
+</html>
